@@ -59,6 +59,11 @@ export const getLanguageModelText = (
         title: 'klasiski model za gmejnske posedźenja (přeskoči přestawki)',
         description: 'wusměrjene na słowoskład posedźenjow - Fraunhofer recIKTS'
       }
+    case 'GERMAN':
+      return {
+        title: 'whisper model za Němčinu',
+        description: 'wulki powšitkowny model - HuggingFace Whisper "large"'
+      }
     case 'DEVEL':
       return { title: 'simulator', description: 'jenož za wuwiwarjow' }
   }
