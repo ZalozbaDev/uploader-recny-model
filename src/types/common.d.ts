@@ -1,4 +1,4 @@
-type LanguageModel = 'GERMAN'
+type LanguageModel = 'GERMAN' | 'DEVEL'
 
 type OutputFormat = 'TXT' | 'SRT'
 
