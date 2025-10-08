@@ -1,7 +1,6 @@
 import { Box, Button, Container, Dialog, Typography } from '@mui/material'
-import { FC, useState } from 'react'
+import { FC, useState, useRef } from 'react'
 import { OutputFormatSelector } from '../../components/output-format-selector'
-import { generateId } from '../../helper/random'
 import { LinearProgressWithLabel } from '../../components/linear-progress-with-label'
 import { toast } from 'react-toastify'
 import { formatSecondsToReadableDuration } from '../../helper/dates'
@@ -11,12 +10,8 @@ import { CloudUploadOutlined } from '@mui/icons-material'
 import { DEFAULT_LEX_FORMAT, DEFAULT_OUTPUT_FORMAT, INVALID_DURATION } from '../../types/constants'
 import { LexFormatSelector } from '../../components/lex-format-selector'
 import { UploadSection } from './components/upload-section'
-import { axiosInstanceSlownik } from '../../lib/axios'
+import { createSlownikUploadService } from '../../services/upload-service'
 import Confetti from 'react-confetti'
-const beepFile = require('../../audio/message-notification.mp3')
-const audio = new Audio(beepFile)
-
-let token = generateId(32)
 
 const Slownik: FC<{}> = () => {
   const [lexFormat, setLexFormat] = useState<LexFormat>(DEFAULT_LEX_FORMAT)
@@ -36,12 +31,27 @@ const Slownik: FC<{}> = () => {
   const [resultFileUrl, setResultFileUrl] = useState<string | null>(null)
   const [resultFinishedModalOpened, setResultFinishedModalOpened] = useState(false)
 
+  const uploadServiceRef = useRef(
+    createSlownikUploadService({
+      onProgressUpdate: setProgess,
+      onSuccess: (url) => {
+        setResultFileUrl(url)
+        setResultFinishedModalOpened(true)
+      },
+      onError: (error) => {
+        toast.error(error)
+        resetInputs()
+      },
+      onLoadingChange: setIsLoading
+    })
+  )
+
   const resetFiles = () => {
     setFiles({ phonmap: null, exceptions: null, korpus: null })
   }
 
   const resetInputs = () => {
-    token = generateId(32)
+    uploadServiceRef.current.resetToken()
     resetFiles()
     setResultFileUrl(null)
     setIsLoading(false)
@@ -78,72 +88,18 @@ const Slownik: FC<{}> = () => {
   }
 
   const onStartUpload = () => {
-    setIsLoading(true)
     if (allFilesSelected()) {
-      const formData = new FormData()
-      formData.append('filename', sanitize(files.korpus!.name))
-      formData.append('token', token)
-      formData.append('languageModel', lexFormat)
-      formData.append('outputFormat', outputFormat)
-      formData.append('korpusname', files.korpus!.name)
-      formData.append('phonmapname', files.phonmap!.name)
-      formData.append('exceptionsname', files.exceptions!.name)
-      formData.append('korpus', files.korpus!)
-      formData.append('phonmap', files.phonmap!)
-      formData.append('exceptions', files.exceptions!)
-
-      setProgess({ status: 0, message: 'Začita so', duration: INVALID_DURATION })
-      axiosInstanceSlownik
-        .post('upload', formData, {
-          headers: {
-            'content-type': 'multipart/form-data'
-          }
-        })
-        .then(async () => {
-          toast('Start 🚀')
-          const permission = await Notification.requestPermission()
-          setProgess({ status: 0, message: 'Začita so', duration: INVALID_DURATION })
-          getStatus(permission)
-        })
-        .catch((error) => {
-          toast.error(error.response?.data || 'Zmylk')
-          setIsLoading(false)
-        })
+      uploadServiceRef.current.startUpload({
+        files: {
+          phonmap: files.phonmap!,
+          exceptions: files.exceptions!,
+          korpus: files.korpus!
+        },
+        lexFormat,
+        outputFormat,
+        token: uploadServiceRef.current.getToken()
+      })
     }
-  }
-
-  const getStatus = (notificationPermission: NotificationPermission) => {
-    setTimeout(() => {
-      axiosInstanceSlownik
-        .get(`/status?token=${token}`)
-        .then(async (response) => {
-          const { duration, done, status, message } = response.data
-          setProgess({ status: parseInt(status, 10), message, duration })
-          if (done === true) {
-            setResultFileUrl(
-              `${process.env.REACT_APP_API_URL_SLOWNIK}/download?token=${token}&filename=${sanitize(files.korpus!.name)}&outputFormat=${lexFormat}`
-            )
-            if (notificationPermission === 'granted') {
-              new Notification('Spóznawanje rěče', {
-                body: 'Dataja je so analysowala 🎉'
-                // icon: 'https://placehold.co/400'
-              })
-            }
-            audio.load()
-            audio.play().catch((error) => {
-              console.log(error)
-            })
-            setResultFinishedModalOpened(true)
-            toast('Dataja je so analysowala 🎉')
-          } else {
-            getStatus(notificationPermission)
-          }
-        })
-        .catch((error) => {
-          toast.error(error.response?.data || 'Zmylk')
-          setIsLoading(false)
-        })
-    }, 1000)
   }
 
   return (

@@ -1,33 +1,41 @@
-import { FormGroup, FormControlLabel, Checkbox, Tooltip } from '@mui/material'
+import { FormControl, InputLabel, Select, MenuItem, Box, Typography, Tooltip } from '@mui/material'
 import { FC } from 'react'
-import { getLanguageModelText } from '../helper/translations'
-import { possibleModelsDefault, possibleModelsExperimental } from '../types/constants'
 
 export const LanguageModelSelector: FC<{
   languageModel: LanguageModel
+  models: LanguageModel[]
   isDisabled: boolean
-  experimentalOptions?: boolean
   onChangeLanguageModel: (model: LanguageModel) => void
-}> = ({ experimentalOptions = false, languageModel, isDisabled, onChangeLanguageModel }) => {
+}> = ({ languageModel, models, isDisabled, onChangeLanguageModel }) => {
   return (
-    <FormGroup>
-      {(experimentalOptions ? possibleModelsExperimental : possibleModelsDefault).map((model) => (
-        <Tooltip key={model} title={getLanguageModelText(model).description}>
-          <FormControlLabel
-            key={model}
-            control={
-              <Checkbox
-                disabled={isDisabled}
-                checked={languageModel === model}
-                onChange={(e) => {
-                  if (e.target.checked) onChangeLanguageModel(model)
-                }}
-              />
-            }
-            label={getLanguageModelText(model).title}
-          />
-        </Tooltip>
-      ))}
-    </FormGroup>
+    <FormControl fullWidth disabled={isDisabled}>
+      <InputLabel>Model wuzwolić</InputLabel>
+      <Select
+        value={languageModel.name}
+        label='Model wuzwolić'
+        onChange={(e) =>
+          onChangeLanguageModel(
+            models.find((model) => model.name === e.target.value) as LanguageModel
+          )
+        }
+      >
+        {models.map((model) => {
+          return (
+            <MenuItem key={model.name} value={model.name}>
+              <Tooltip title={model.description} placement='right'>
+                <Box>
+                  <Typography variant='body1' sx={{ fontWeight: 500 }}>
+                    {model.title}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    {model.description}
+                  </Typography>
+                </Box>
+              </Tooltip>
+            </MenuItem>
+          )
+        })}
+      </Select>
+    </FormControl>
   )
 }
