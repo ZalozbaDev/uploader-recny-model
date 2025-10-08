@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, Select, MenuItem, Box, Typography, Tooltip } from '@mui/material'
 import { FC } from 'react'
+import { getIconFile } from '../helper/files'
 
 export const LanguageModelSelector: FC<{
   languageModel: LanguageModel
@@ -25,7 +26,13 @@ export const LanguageModelSelector: FC<{
               <Tooltip title={model.description} placement='right'>
                 <Box>
                   <Typography variant='body1' sx={{ fontWeight: 500 }}>
-                    {model.title} {model.language}
+                    {model.title}{' '}
+                    <img
+                      src={getIconFile(model.language)}
+                      alt={model.language}
+                      width={12}
+                      height={12}
+                    />
                   </Typography>
                   <Typography variant='caption' color='text.secondary'>
                     {model.description}
