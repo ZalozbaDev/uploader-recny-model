@@ -25,17 +25,17 @@ const CustomStepConnector = styled(StepConnector)(({ theme }) => ({
 const getStepLabel = (step: StepType): string => {
   switch (step) {
     case 'select-process':
-      return 'Process wolić'
+      return 'zaměr wolić'
     case 'audio-upload':
-      return 'Awdijo nakładować'
+      return 'awdijo upload'
     case 'text-upload':
-      return 'Tekst nakładować'
+      return 'tekst nakładować'
     case 'settings':
       return 'nastajenja'
     case 'upload':
-      return 'Předźěłanje'
+      return 'předźěłanje'
     default:
-      return 'Njeznaty'
+      return 'njeznaty'
   }
 }
 

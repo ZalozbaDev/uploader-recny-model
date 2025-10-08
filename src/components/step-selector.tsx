@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Card, CardContent } from '@mui/material'
+import { Box, Typography, Card, CardContent } from '@mui/material'
 import { FC } from 'react'
 
 export type ProcessStep = 'audio-only' | 'audio-with-text'
@@ -12,7 +12,7 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
   return (
     <Box sx={{ textAlign: 'center', paddingBottom: 3 }}>
       <Typography variant='h5' sx={{ paddingBottom: 3, fontWeight: 600 }}>
-        Maš tekst abo nic?
+        wuzwol mjez opcijomaj:
       </Typography>
       <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
         <Card
@@ -30,10 +30,10 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
         >
           <CardContent>
             <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1 }}>
-              Ně
+              zwuk
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              Jenož zwuk
+              mam jenož awdijo
             </Typography>
           </CardContent>
         </Card>
@@ -54,10 +54,10 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
         >
           <CardContent>
             <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1 }}>
-              Haj
+              zwuk & tekst
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              Zwuk + Tekst
+              mam woboje
             </Typography>
           </CardContent>
         </Card>

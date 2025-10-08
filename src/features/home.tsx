@@ -79,7 +79,10 @@ const Home: FC<{}> = () => {
           border: '1px solid rgba(255, 255, 255, 0.2)'
         }}
       >
-        <HeaderSection title='Spóznawanje rěče' subtitle='BETA werzija *** StT-HSB-V0.3.0' />
+        <HeaderSection
+          title='podtitulki a transkripty'
+          subtitle='BETA werzija *** StT-HSB-V0.3.0'
+        />
 
         <ProcessFlow
           isLoading={isLoading}
