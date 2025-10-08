@@ -20,6 +20,7 @@ type LanguageModel = {
   vad: boolean
   language: Language
   source: string
+  forceAlign: boolean
 }
 
 type ResultFileUrls = {
