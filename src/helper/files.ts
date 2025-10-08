@@ -7,6 +7,6 @@ export const getIconFile = (language: Language) => {
     case Language.dsb:
       return '/images/dsb.png'
     case Language.de:
-      return '/images/hsb.png'
+      return '/images/de.png'
   }
 }
