@@ -1,7 +1,13 @@
 import { Box, Stepper, Step, StepLabel, StepConnector, styled } from '@mui/material'
 import { FC } from 'react'
 
-export type StepType = 'select-process' | 'audio-upload' | 'text-upload' | 'settings' | 'upload'
+export type StepType =
+  | 'select-process'
+  | 'audio-upload'
+  | 'text-and-audio-upload'
+  | 'text-upload'
+  | 'settings'
+  | 'upload'
 
 interface ProcessStepperProps {
   activeStep: number
@@ -28,6 +34,8 @@ const getStepLabel = (step: StepType): string => {
       return 'zaměr wolić'
     case 'audio-upload':
       return 'awdijo upload'
+    case 'text-and-audio-upload':
+      return 'awdijo & tekst upload'
     case 'text-upload':
       return 'tekst nakładować'
     case 'settings':

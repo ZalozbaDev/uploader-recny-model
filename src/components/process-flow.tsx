@@ -16,10 +16,11 @@ interface ProcessFlowProps {
   models: LanguageModel[]
   onStartUpload: (
     choosenModel: LanguageModel,
-    file: File,
+    audioFile: File,
     translate: boolean,
     diarization: number,
-    vad: boolean
+    vad: boolean,
+    textFile: File | null
   ) => void
   onReset: () => void
   resultFileUrl: {
@@ -43,9 +44,8 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
 }) => {
   const [selectedStep, setSelectedStep] = useState<ProcessStep | null>(null)
   const [audioFile, setAudioFile] = useState<File | null>(null)
-  const [audioModel, setAudioModel] = useState<LanguageModel | null>(null)
+  const [choosenModel, setChoosenModel] = useState<LanguageModel | null>(null)
   const [textFile, setTextFile] = useState<File | null>(null)
-  const [textModel, setTextModel] = useState<LanguageModel | null>(null)
   const [settings, setSettings] = useState<SettingsState>({
     enableSubtitleTranslation: false,
     diarization: DEFAULT_DIARIZATION,
@@ -57,8 +57,9 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
 
   const steps: StepType[] = [
     'select-process' as StepType,
-    'audio-upload' as StepType,
-    ...(selectedStep === 'audio-with-text' ? ['text-upload' as StepType] : []),
+    ...(selectedStep === 'audio-with-text'
+      ? ['text-and-audio-upload' as StepType]
+      : ['audio-upload' as StepType]),
     'settings' as StepType,
     'upload' as StepType
   ]
@@ -88,17 +89,16 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
   const handleNext = () => {
     if (currentStepIndex < steps.length - 1) {
       if (currentStepIndex === steps.length - 2) {
-        const file = audioFile || textFile
-        if (file) {
-          onStartUpload(
-            audioModel || models[0],
-            file,
-            settings.enableSubtitleTranslation,
-            settings.diarization,
-            settings.vad
-          )
-        }
+        onStartUpload(
+          choosenModel || models.filter((model) => model.forceAlign).at(0)!,
+          audioFile!,
+          settings.enableSubtitleTranslation,
+          settings.diarization,
+          settings.vad,
+          textFile
+        )
       }
+
       setCompletedSteps((prev) => [...prev, currentStepIndex])
       setCurrentStepIndex((prev) => prev + 1)
     }
@@ -118,6 +118,8 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
         return selectedStep !== null
       case 'audio-upload':
         return audioFile !== null
+      case 'text-and-audio-upload':
+        return audioFile !== null && textFile !== null
       case 'text-upload':
         return textFile !== null
       case 'settings':
@@ -159,25 +161,28 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
             >
               {steps[currentStepIndex] === 'audio-upload' && (
                 <UploadSection
-                  title='Zwuk a Model wuzwolić'
-                  file={audioFile}
-                  model={audioModel || models.filter((model) => !model.forceAlign).at(0)!}
+                  title1='Zwuk a Model wuzwolić'
+                  audioFile={audioFile}
+                  model={choosenModel || models.filter((model) => !model.forceAlign).at(0)!}
                   models={models.filter((model) => !model.forceAlign)}
                   isDisabled={isDisabled}
-                  onSetFile={onSetAudioFile}
-                  onChangeModel={setAudioModel}
+                  onSetAudioFile={onSetAudioFile}
+                  onChangeModel={setChoosenModel}
                 />
               )}
 
-              {steps[currentStepIndex] === 'text-upload' && (
+              {steps[currentStepIndex] === 'text-and-audio-upload' && (
                 <UploadSection
-                  title='Tekst a Model wuzwolić'
-                  file={textFile}
-                  model={textModel || models.filter((model) => model.forceAlign).at(0)!}
+                  title1='Zwuk wuzwolić'
+                  title2='Tekst a model wuzwolić'
+                  audioFile={audioFile}
+                  textFile={textFile}
+                  model={choosenModel || models.filter((model) => model.forceAlign).at(0)!}
                   models={models.filter((model) => model.forceAlign)}
                   isDisabled={isDisabled}
-                  onSetFile={onSetTextFile}
-                  onChangeModel={setTextModel}
+                  onSetAudioFile={onSetAudioFile}
+                  onSetTextFile={onSetTextFile}
+                  onChangeModel={setChoosenModel}
                 />
               )}
 
@@ -202,9 +207,8 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
                       setCurrentStepIndex(0)
                       setCompletedSteps([])
                       setAudioFile(null)
-                      setAudioModel(null)
+                      setChoosenModel(null)
                       setTextFile(null)
-                      setTextModel(null)
                       onReset()
                     }}
                   />

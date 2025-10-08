@@ -55,19 +55,21 @@ const Home: FC<{}> = () => {
 
   const onStartUpload = (
     choosenModel: LanguageModel,
-    file: File,
+    audioFile: File,
     translate: boolean,
     diarization: number,
-    vad: boolean
+    vad: boolean,
+    textFile: File | null
   ) => {
-    if (file) {
+    if (audioFile) {
       uploadServiceRef.current.startUpload({
-        file,
+        audioFile,
         languageModel: choosenModel,
         token: uploadServiceRef.current.getToken(),
         translate,
         diarization,
-        vad
+        vad,
+        textFile
       })
     }
   }

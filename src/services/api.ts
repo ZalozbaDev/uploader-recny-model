@@ -3,7 +3,8 @@ import { sanitize } from '../helper/sanitizer'
 
 // Request types
 export interface TranscriptUploadRequest {
-  file: File
+  audioFile: File
+  textFile: File | null
   languageModel: string
   token: string
   translate: boolean
@@ -52,14 +53,20 @@ export const uploadTranscript = async (
   params: TranscriptUploadRequest
 ): Promise<UploadResponse> => {
   try {
-    const { file, languageModel, token, translate, diarization, vad } = params
-    const parsedFile = new File([file], sanitize(file.name), { type: file.type })
+    const { audioFile, languageModel, token, translate, diarization, vad, textFile } = params
+
     const formData = new FormData()
 
-    formData.append('filename', sanitize(parsedFile.name))
+    // Add files with the correct field names expected by the server
+    formData.append('audioFile', audioFile)
+    // Only append textFile if it exists
+    if (textFile) {
+      formData.append('textFile', textFile)
+    }
+
+    // Add body parameters as expected by the server
     formData.append('token', token)
-    formData.append('languageModel', languageModel)
-    formData.append('file', parsedFile)
+    formData.append('model', languageModel)
     formData.append('translate', String(translate))
     formData.append('diarization', String(diarization))
     formData.append('vad', String(vad))
@@ -71,6 +78,7 @@ export const uploadTranscript = async (
     })
     return response.data
   } catch (error: any) {
+    console.error('Upload error:', error)
     throw new Error(error.response?.data || 'Upload failed')
   }
 }

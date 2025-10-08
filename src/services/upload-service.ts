@@ -26,12 +26,13 @@ export interface UploadCallbacks {
 }
 
 export interface TranscriptUploadParams {
-  file: File
+  audioFile: File
   languageModel: LanguageModel
   token: string
   translate: boolean
   diarization: number
   vad: boolean
+  textFile: File | null
 }
 
 export interface SlownikUploadParams {
@@ -67,6 +68,7 @@ export class UploadService {
   }
 
   public async startUpload(params: UploadParams): Promise<void> {
+    console.log('-1')
     this.callbacks.onLoadingChange(true)
 
     try {
@@ -82,8 +84,14 @@ export class UploadService {
   }
 
   private async handleTranscriptUpload(params: TranscriptUploadParams): Promise<void> {
-    const { file, languageModel, translate, diarization, vad } = params
-    const parsedFile = new File([file], sanitize(file.name), { type: file.type })
+    const { audioFile, languageModel, translate, diarization, vad, textFile } = params
+    const parsedAudioFile = new File([audioFile], sanitize(audioFile.name), {
+      type: audioFile.type
+    })
+
+    const parsedTextFile = textFile
+      ? new File([textFile], sanitize(textFile.name), { type: textFile.type })
+      : null
 
     this.callbacks.onProgressUpdate({
       status: 0,
@@ -92,12 +100,13 @@ export class UploadService {
     })
 
     await uploadTranscript({
-      file: parsedFile,
+      audioFile: parsedAudioFile,
       languageModel: languageModel.name,
       token: this.token,
       translate,
       diarization,
-      vad
+      vad,
+      textFile: parsedTextFile
     })
 
     toast('Start 🚀')
@@ -108,7 +117,7 @@ export class UploadService {
       duration: INVALID_DURATION
     })
 
-    this.startStatusPolling(permission, parsedFile.name)
+    this.startStatusPolling(permission, parsedAudioFile.name)
   }
 
   private async handleSlownikUpload(params: SlownikUploadParams): Promise<void> {
