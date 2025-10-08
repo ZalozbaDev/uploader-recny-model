@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { ArrowBack, ArrowForward } from '@mui/icons-material'
 import StepSelector, { ProcessStep } from './step-selector'
@@ -8,6 +8,7 @@ import SettingsSection, { SettingsState } from './settings-section'
 import ProcessStepper, { StepType } from './process-stepper'
 import ProgressSection from './progress-section'
 import ResultsSection from './results-section'
+import { DEFAULT_DIARIZATION, DEFAULT_VAD } from '../types/constants'
 
 interface ProcessFlowProps {
   isLoading: boolean
@@ -43,8 +44,8 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
   const [textModel, setTextModel] = useState<LanguageModel | null>(null)
   const [settings, setSettings] = useState<SettingsState>({
     enableSubtitleTranslation: false,
-    diarization: 0,
-    vad: false
+    diarization: DEFAULT_DIARIZATION,
+    vad: DEFAULT_VAD
   })
   const [devModeOpened, setDevModeOpened] = useState(false)
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
