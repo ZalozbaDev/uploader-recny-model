@@ -2,49 +2,69 @@ import { Box, Typography } from '@mui/material'
 import { FC } from 'react'
 import { FileUploader } from './file-uploader'
 import { LanguageModelSelector } from './language-model-selector'
-import { OutputFormatSelector } from './output-format-selector'
 
 interface UploadSectionProps {
   file: File | null
-  isDisabled: boolean
+  model: LanguageModel
   models: LanguageModel[]
+  isDisabled: boolean
+  title: string
   onSetFile: (file: File) => void
-  choosenModel: LanguageModel
-  outputFormat: OutputFormat
-  onChangeLanguageModel: (model: LanguageModel) => void
-  onChangeOutputFormat: (format: OutputFormat) => void
+  onChangeModel: (model: LanguageModel) => void
 }
 
 const UploadSection: FC<UploadSectionProps> = ({
   file,
+  model,
   isDisabled,
   models,
+  title,
   onSetFile,
-  choosenModel,
-  outputFormat,
-  onChangeLanguageModel,
-  onChangeOutputFormat
+  onChangeModel
 }) => {
   return (
-    <>
-      <FileUploader file={file} isDisabled={isDisabled} onSetFile={onSetFile} />
-      <Typography variant='h6' sx={{ paddingTop: 3 }}>
-        Zaměr a format wuzwolić
+    <Box
+      sx={{
+        paddingBottom: { xs: 2, sm: 3 },
+        width: '100%',
+        textAlign: 'center'
+      }}
+    >
+      <Typography
+        variant='h6'
+        sx={{
+          paddingBottom: { xs: 1, sm: 2 },
+          fontSize: { xs: '1.1rem', sm: '1.25rem' }
+        }}
+      >
+        {title}
       </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingTop: 1 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: { xs: 1, sm: 2 },
+          width: '100%'
+        }}
+      >
+        <FileUploader file={file} isDisabled={isDisabled} onSetFile={onSetFile} />
+      </Box>
+      <Box
+        sx={{
+          paddingTop: { xs: 1, sm: 2 },
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center'
+        }}
+      >
         <LanguageModelSelector
-          languageModel={choosenModel}
+          languageModel={model}
+          isDisabled={isDisabled}
           models={models}
-          isDisabled={isDisabled}
-          onChangeLanguageModel={onChangeLanguageModel}
-        />
-        <OutputFormatSelector
-          outputFormat={outputFormat}
-          isDisabled={isDisabled}
-          onChangeOutputFormat={onChangeOutputFormat}
+          onChangeLanguageModel={onChangeModel}
         />
       </Box>
-    </>
+    </Box>
   )
 }
 

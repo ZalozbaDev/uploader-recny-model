@@ -2,8 +2,7 @@ import { FC, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { ArrowBack, ArrowForward } from '@mui/icons-material'
 import StepSelector, { ProcessStep } from './step-selector'
-import AudioUploadSection from './audio-upload-section'
-import TextUploadSection from './text-upload-section'
+import UploadSection from './upload-section'
 import SettingsSection, { SettingsState } from './settings-section'
 import ProcessStepper, { StepType } from './process-stepper'
 import ProgressSection from './progress-section'
@@ -159,24 +158,26 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
               }}
             >
               {steps[currentStepIndex] === 'audio-upload' && (
-                <AudioUploadSection
-                  audioFile={audioFile}
-                  audioModel={audioModel || models[0]}
-                  models={models}
+                <UploadSection
+                  title='Zwuk a Model wuzwolić'
+                  file={audioFile}
+                  model={audioModel || models.filter((model) => !model.forceAlign).at(0)!}
+                  models={models.filter((model) => !model.forceAlign)}
                   isDisabled={isDisabled}
-                  onSetAudioFile={onSetAudioFile}
-                  onChangeAudioModel={setAudioModel}
+                  onSetFile={onSetAudioFile}
+                  onChangeModel={setAudioModel}
                 />
               )}
 
               {steps[currentStepIndex] === 'text-upload' && (
-                <TextUploadSection
-                  textFile={textFile}
-                  textModel={textModel || models[0]}
-                  models={models}
+                <UploadSection
+                  title='Tekst a Model wuzwolić'
+                  file={textFile}
+                  model={textModel || models.filter((model) => model.forceAlign).at(0)!}
+                  models={models.filter((model) => model.forceAlign)}
                   isDisabled={isDisabled}
-                  onSetTextFile={onSetTextFile}
-                  onChangeTextModel={setTextModel}
+                  onSetFile={onSetTextFile}
+                  onChangeModel={setTextModel}
                 />
               )}
 
