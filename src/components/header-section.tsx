@@ -8,7 +8,7 @@ interface HeaderSectionProps {
 
 const HeaderSection: FC<HeaderSectionProps> = ({ title, subtitle }) => {
   return (
-    <Box sx={{ textAlign: 'center', marginBottom: 4 }}>
+    <Box sx={{ textAlign: 'center', marginBottom: { xs: 2, sm: 4 } }}>
       <Typography
         variant='h3'
         sx={{
@@ -17,7 +17,8 @@ const HeaderSection: FC<HeaderSectionProps> = ({ title, subtitle }) => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          marginBottom: 2
+          marginBottom: { xs: 1, sm: 2 },
+          fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' }
         }}
       >
         {title}
@@ -29,9 +30,10 @@ const HeaderSection: FC<HeaderSectionProps> = ({ title, subtitle }) => {
           fontWeight: 500,
           backgroundColor: 'rgba(25, 118, 210, 0.15)',
           border: '2px solid #1976d2',
-          padding: '8px 16px',
+          padding: { xs: '6px 12px', sm: '8px 16px' },
           borderRadius: 2,
-          display: 'inline-block'
+          display: 'inline-block',
+          fontSize: { xs: '0.875rem', sm: '1.25rem' }
         }}
       >
         {subtitle}

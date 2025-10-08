@@ -9,7 +9,7 @@ export const LanguageModelSelector: FC<{
   onChangeLanguageModel: (model: LanguageModel) => void
 }> = ({ languageModel, models, isDisabled, onChangeLanguageModel }) => {
   return (
-    <FormControl fullWidth disabled={isDisabled}>
+    <FormControl fullWidth disabled={isDisabled} sx={{ maxWidth: { xs: '100%', sm: 400 } }}>
       <InputLabel>Model wuzwolić</InputLabel>
       <Select
         value={languageModel.name}
@@ -25,7 +25,10 @@ export const LanguageModelSelector: FC<{
             <MenuItem key={model.name} value={model.name}>
               <Tooltip title={model.description} placement='right'>
                 <Box>
-                  <Typography variant='body1' sx={{ fontWeight: 500 }}>
+                  <Typography
+                    variant='body1'
+                    sx={{ fontWeight: 500, fontSize: { xs: '0.875rem', sm: '1rem' } }}
+                  >
                     {model.title}{' '}
                     <img
                       src={getIconFile(model.language)}

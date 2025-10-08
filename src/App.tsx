@@ -88,13 +88,13 @@ const App: FC<{}> = () => {
       >
         <Box
           sx={{
-            minHeight: `calc(100vh - ${FOOTER_HEIGHT}px - 16px)`,
-            maxHeight: `calc(100vh - ${FOOTER_HEIGHT}px - 16px)`,
+            minHeight: `calc(100vh - ${FOOTER_HEIGHT}px)`,
+            maxHeight: `calc(100vh - ${FOOTER_HEIGHT}px)`,
             marginBottom: `${FOOTER_HEIGHT}px`,
             width: '100%',
-            maxWidth: '800px',
+            maxWidth: { xs: '100%', sm: '600px', md: '800px' },
             overflow: 'auto',
-            padding: 2,
+            padding: { xs: 1, sm: 2 },
             '&::-webkit-scrollbar': {
               display: 'none'
             },

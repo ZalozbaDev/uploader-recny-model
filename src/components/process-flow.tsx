@@ -141,7 +141,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
       <Box
         sx={{
           flex: 1,
-          padding: 2,
+          padding: { xs: 1, sm: 2 },
           overflow: 'auto'
         }}
       >
@@ -221,7 +221,14 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
       </Box>
 
       <Box
-        sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 'auto', paddingTop: 2 }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: 'auto',
+          paddingTop: { xs: 1, sm: 2 },
+          flexDirection: { xs: 'column', sm: 'row' },
+          gap: { xs: 2, sm: 0 }
+        }}
       >
         <Button
           variant='outlined'

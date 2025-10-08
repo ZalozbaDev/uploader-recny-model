@@ -1,4 +1,4 @@
-import { Button, Typography, styled } from '@mui/material'
+import { Button, Typography, styled, Box } from '@mui/material'
 import { FC, useEffect, useRef } from 'react'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 
@@ -37,14 +37,15 @@ export const FileUploader: FC<{
   }, [file])
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: { xs: 'column', sm: 'row' },
         alignItems: 'center',
         justifyContent: file ? 'space-between' : 'center',
         width: '100%',
-        maxWidth: 400
+        maxWidth: '100%',
+        gap: { xs: 2, sm: 0 }
       }}
     >
       <Button
@@ -60,21 +61,21 @@ export const FileUploader: FC<{
         <VisuallyHiddenInput type='file' onChange={onFileChange} accept={acceptExtensions} />
       </Button>
       {file && (
-        <div style={{ paddingTop: 5 }}>
-          <Typography variant='body1' textAlign='left'>
+        <Box sx={{ paddingTop: { xs: 0, sm: 0.5 } }}>
+          <Typography variant='body1' textAlign={{ xs: 'center', sm: 'left' }}>
             Drobnosće dataje:
           </Typography>
-          <Typography variant='body2' textAlign='left'>
+          <Typography variant='body2' textAlign={{ xs: 'center', sm: 'left' }}>
             * mjeno: {file.name}
           </Typography>
-          <Typography variant='body2' textAlign='left'>
+          <Typography variant='body2' textAlign={{ xs: 'center', sm: 'left' }}>
             * typ dataje: {file.type}
           </Typography>
-          <Typography variant='body2' textAlign='left'>
+          <Typography variant='body2' textAlign={{ xs: 'center', sm: 'left' }}>
             * wulkosć: {file.size} bytes
           </Typography>
-        </div>
+        </Box>
       )}
-    </div>
+    </Box>
   )
 }

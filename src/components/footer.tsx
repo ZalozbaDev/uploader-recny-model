@@ -36,24 +36,38 @@ export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
         position: 'absolute',
         left: 0,
         bottom: 0,
-        FOOTER_HEIGHT: FOOTER_HEIGHT,
-        flexDirection: 'row'
+        height: FOOTER_HEIGHT,
+        flexDirection: { xs: 'column', sm: 'row' },
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        gap: { xs: 0.5, sm: 1 },
+        padding: { xs: 1, sm: 2 }
       }}
     >
-      <Button sx={{ color: 'black' }} onClick={handleClickZorla}>
-        <Typography variant='body1'>Žórła ▾</Typography>
+      <Button sx={{ color: 'black', minWidth: 'auto' }} onClick={handleClickZorla}>
+        <Typography variant='body2' sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' } }}>
+          Žórła ▾
+        </Typography>
       </Button>
-      <Button sx={{ color: 'black' }} onClick={handleClickWotkazy}>
-        <Typography variant='body1'>Wotkazy ▾</Typography>
+      <Button sx={{ color: 'black', minWidth: 'auto' }} onClick={handleClickWotkazy}>
+        <Typography variant='body2' sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' } }}>
+          Wotkazy ▾
+        </Typography>
       </Button>
       <Link href={ROUTES.imprint} color='inherit' underline='hover'>
-        <Button sx={{ color: 'black' }}>
-          <Typography variant='body1'>Impresum</Typography>
+        <Button sx={{ color: 'black', minWidth: 'auto' }}>
+          <Typography variant='body2' sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' } }}>
+            Impresum
+          </Typography>
         </Button>
       </Link>
       <Link href={ROUTES['datowy-skit']} color='inherit' underline='hover'>
-        <Button sx={{ color: 'black' }}>
-          <Typography variant='body1'>Datowy škit</Typography>
+        <Button sx={{ color: 'black', minWidth: 'auto' }}>
+          <Typography variant='body2' sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' } }}>
+            Datowy škit
+          </Typography>
         </Button>
       </Link>
 

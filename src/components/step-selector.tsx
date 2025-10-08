@@ -10,14 +10,30 @@ interface StepSelectorProps {
 
 const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => {
   return (
-    <Box sx={{ textAlign: 'center', paddingBottom: 3 }}>
-      <Typography variant='h5' sx={{ paddingBottom: 3, fontWeight: 600 }}>
+    <Box sx={{ textAlign: 'center', paddingBottom: { xs: 2, sm: 3 } }}>
+      <Typography
+        variant='h5'
+        sx={{
+          paddingBottom: { xs: 2, sm: 3 },
+          fontWeight: 600,
+          fontSize: { xs: '1.25rem', sm: '1.5rem' }
+        }}
+      >
         wuzwol mjez opcijomaj:
       </Typography>
-      <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: { xs: 2, sm: 3 },
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          flexDirection: { xs: 'column', sm: 'row' }
+        }}
+      >
         <Card
           sx={{
-            minWidth: 200,
+            minWidth: { xs: '100%', sm: 200 },
+            maxWidth: { xs: '100%', sm: 250 },
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             transform: selectedStep === 'audio-only' ? 'scale(1.05)' : 'scale(1)',
@@ -28,7 +44,7 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
           }}
           onClick={() => onStepSelect('audio-only')}
         >
-          <CardContent>
+          <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
             <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1 }}>
               zwuk
             </Typography>
@@ -40,7 +56,8 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
 
         <Card
           sx={{
-            minWidth: 200,
+            minWidth: { xs: '100%', sm: 200 },
+            maxWidth: { xs: '100%', sm: 250 },
             cursor: 'pointer',
             transition: 'all 0.3s ease',
             transform: selectedStep === 'audio-with-text' ? 'scale(1.05)' : 'scale(1)',
@@ -52,7 +69,7 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
           }}
           onClick={() => onStepSelect('audio-with-text')}
         >
-          <CardContent>
+          <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
             <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1 }}>
               zwuk & tekst
             </Typography>

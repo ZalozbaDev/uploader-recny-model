@@ -47,14 +47,21 @@ const SettingsSection: FC<SettingsSectionProps> = ({
       {/* Subtitle Translation Dropdown */}
       <Card
         sx={{
-          marginBottom: 3
+          marginBottom: { xs: 2, sm: 3 }
         }}
       >
-        <CardContent>
-          <Typography variant='h6' sx={{ marginBottom: 2, fontWeight: 600 }}>
+        <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
+          <Typography
+            variant='h6'
+            sx={{
+              marginBottom: { xs: 1, sm: 2 },
+              fontWeight: 600,
+              fontSize: { xs: '1.1rem', sm: '1.25rem' }
+            }}
+          >
             Tekst Untertitel přełožić
           </Typography>
-          <FormControl fullWidth disabled={isDisabled}>
+          <FormControl fullWidth disabled={isDisabled} sx={{ maxWidth: { xs: '100%', sm: 400 } }}>
             <InputLabel>Wuzwol opciju</InputLabel>
             <Select
               value={settings.enableSubtitleTranslation ? 'yes' : 'no'}
@@ -72,16 +79,23 @@ const SettingsSection: FC<SettingsSectionProps> = ({
 
       {/* Experimental Options */}
       <Card>
-        <CardContent>
+        <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
           <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBottom: 2
+              marginBottom: { xs: 1, sm: 2 },
+              flexWrap: 'wrap'
             }}
           >
-            <Typography variant='h6' sx={{ fontWeight: 600 }}>
+            <Typography
+              variant='h6'
+              sx={{
+                fontWeight: 600,
+                fontSize: { xs: '1.1rem', sm: '1.25rem' }
+              }}
+            >
               Eksperimentelne opcije
             </Typography>
             <IconButton onClick={onToggleDevMode} sx={{ marginLeft: 1 }}>
@@ -89,7 +103,15 @@ const SettingsSection: FC<SettingsSectionProps> = ({
             </IconButton>
           </Box>
           {devModeOpened && (
-            <Box sx={{ paddingTop: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box
+              sx={{
+                paddingTop: { xs: 1, sm: 2 },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: { xs: 1.5, sm: 2 },
+                alignItems: 'center'
+              }}
+            >
               <TextField
                 label='Rečniki'
                 type='number'
@@ -101,7 +123,7 @@ const SettingsSection: FC<SettingsSectionProps> = ({
                   max: 10,
                   step: 1
                 }}
-                sx={{ width: '100%' }}
+                sx={{ width: '100%', maxWidth: { xs: '100%', sm: 300 } }}
               />
 
               <FormControlLabel
@@ -113,6 +135,7 @@ const SettingsSection: FC<SettingsSectionProps> = ({
                   />
                 }
                 label='VAD (Voice Activity Detection)'
+                sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}
               />
             </Box>
           )}

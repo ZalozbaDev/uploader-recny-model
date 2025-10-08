@@ -77,10 +77,10 @@ const Home: FC<{}> = () => {
       <Paper
         elevation={8}
         sx={{
-          padding: 3,
+          padding: { xs: 2, sm: 3 },
           backgroundColor: 'rgba(255, 255, 255, 0.95)',
           backdropFilter: 'blur(10px)',
-          borderRadius: 3,
+          borderRadius: { xs: 2, sm: 3 },
           height: '100%',
           display: 'flex',
           flexDirection: 'column',

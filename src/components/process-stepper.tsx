@@ -41,8 +41,13 @@ const getStepLabel = (step: StepType): string => {
 
 const ProcessStepper: FC<ProcessStepperProps> = ({ activeStep, completedSteps, steps }) => {
   return (
-    <Box sx={{ width: '100%', marginBottom: 4 }}>
-      <Stepper activeStep={activeStep} connector={<CustomStepConnector />} alternativeLabel>
+    <Box sx={{ width: '100%', marginBottom: { xs: 2, sm: 4 } }}>
+      <Stepper
+        activeStep={activeStep}
+        connector={<CustomStepConnector />}
+        alternativeLabel
+        orientation='horizontal'
+      >
         {steps.map((step, index) => (
           <Step
             key={step}
@@ -50,7 +55,7 @@ const ProcessStepper: FC<ProcessStepperProps> = ({ activeStep, completedSteps, s
             sx={{
               '& .MuiStepLabel-root': {
                 '& .MuiStepLabel-label': {
-                  fontSize: '0.875rem',
+                  fontSize: { xs: '0.75rem', sm: '0.875rem' },
                   fontWeight: 500
                 },
                 '& .MuiStepLabel-label.Mui-active': {
