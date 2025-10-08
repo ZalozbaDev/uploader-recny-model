@@ -194,7 +194,19 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
                 <Box sx={{ textAlign: 'center' }}>
                   <ProgressSection isLoading={isLoading} progress={uploadProgress} />
 
-                  <ResultsSection resultFileUrl={resultFileUrl} onReset={onReset} />
+                  <ResultsSection
+                    resultFileUrl={resultFileUrl}
+                    onReset={() => {
+                      setSelectedStep(null)
+                      setCurrentStepIndex(0)
+                      setCompletedSteps([])
+                      setAudioFile(null)
+                      setAudioModel(null)
+                      setTextFile(null)
+                      setTextModel(null)
+                      onReset()
+                    }}
+                  />
                 </Box>
               )}
             </Box>
