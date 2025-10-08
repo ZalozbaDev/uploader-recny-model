@@ -11,7 +11,13 @@ export const getLanguageModelText = (
       return {
         title: 'powšitkowny KI model (doporučene)',
         description:
-          'za powŝitkowne rozmołwy - HuggingFace Whisper "small" wusměrjene na Hornjoserbšćinu'
+          'za powšitkowne rozmołwy - HuggingFace Whisper "small" wusměrjene na Hornjoserbšćinu'
+      }
+    case 'HFBIG':
+      return {
+        title: 'wulki powšitkowny KI model (pomału, dokładnje)',
+        description:
+          'za powšitkowne rozmołwy - HuggingFace Whisper "large" wusměrjene na Hornjoserbšćinu'
       }
     case 'EURO':
       return {
@@ -20,11 +26,38 @@ export const getLanguageModelText = (
           'za transkript Europeady - HuggingFace Whisper "base" wusměrjene na hry Europeady 2022'
       }
     case 'FB':
-      return { title: 'wjacerěčny KI model', description: 'za powŝitkowne rozmołwy - Facebook MMS' }
+      return { title: 'wjacerěčny KI model', description: 'za powšitkowne rozmołwy - Facebook MMS' }
     case 'BOZA_MSA':
       return {
         title: 'klasiski model za bože mšě',
         description: 'wusměrjene na cyrkwinsku rěč - Fraunhofer recIKTS'
+      }
+    case 'GMEJ':
+      return {
+        title: 'klasiski model za gmejnske posedźenja',
+        description: 'wusměrjene na słowoskład posedźenjow - Fraunhofer recIKTS'
+      }
+    case 'HF_PAU':
+      return {
+        title: 'powšitkowny KI model (doporučene) (přeskoči přestawki)',
+        description:
+          'za powšitkowne rozmołwy - HuggingFace Whisper "small" wusměrjene na Hornjoserbšćinu'
+      }
+    case 'HFBIG_PAU':
+      return {
+        title: 'wulki powšitkowny KI model (pomału, dokładnje) (přeskoči přestawki)',
+        description:
+          'za powšitkowne rozmołwy - HuggingFace Whisper "large" wusměrjene na Hornjoserbšćinu'
+      }
+    case 'BOZA_MSA_PAU':
+      return {
+        title: 'klasiski model za bože mšě (přeskoči přestawki)',
+        description: 'wusměrjene na cyrkwinsku rěč - Fraunhofer recIKTS'
+      }
+    case 'GMEJ_PAU':
+      return {
+        title: 'klasiski model za gmejnske posedźenja (přeskoči přestawki)',
+        description: 'wusměrjene na słowoskład posedźenjow - Fraunhofer recIKTS'
       }
     case 'DEVEL':
       return { title: 'simulator', description: 'jenož za wuwiwarjow' }

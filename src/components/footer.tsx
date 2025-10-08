@@ -66,7 +66,7 @@ export const Footer: FC<{}> = () => {
         }}
       >
         {getMenuPoint(
-          'Korla Baier HSB modele (huggingface hub)',
+          'Korla Baier small HSB (huggingface hub)',
           'https://huggingface.co/spaces/Korla/hsb_stt_demo/tree/main'
         )}
         {getMenuPoint(
@@ -76,6 +76,10 @@ export const Footer: FC<{}> = () => {
         {getMenuPoint(
           'Fraunhofer IKTS (homepage)',
           'https://www.ikts.fraunhofer.de/de/industrieloesungen/akustische_diagnostik/bio_sprachsignale.html'
+        )}
+        {getMenuPoint(
+          'Korla Baier large HSB (huggingface hub)',
+          'https://huggingface.co/Korla/whisper-large-hsb'
         )}
         {getMenuPoint('Wuwiće strony (homepage)', 'https://fs-coding.com')}
       </Menu>
