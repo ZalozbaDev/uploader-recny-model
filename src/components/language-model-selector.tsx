@@ -25,7 +25,7 @@ export const LanguageModelSelector: FC<{
               <Tooltip title={model.description} placement='right'>
                 <Box>
                   <Typography variant='body1' sx={{ fontWeight: 500 }}>
-                    {model.title}
+                    {model.title} {model.language}
                   </Typography>
                   <Typography variant='caption' color='text.secondary'>
                     {model.description}

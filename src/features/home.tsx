@@ -4,9 +4,7 @@ import { toast } from 'react-toastify'
 import { INVALID_DURATION } from '../types/constants'
 import HeaderSection from '../components/header-section'
 import ProcessFlow from '../components/process-flow'
-import ResultModal from '../components/result-modal'
 import { createTranscriptUploadService } from '../services/upload-service'
-import { generateResultFileUrls } from '../helper/sanitizer'
 import { getModels } from '../services/models'
 
 const Home: FC<{}> = () => {
@@ -16,8 +14,12 @@ const Home: FC<{}> = () => {
     message: '',
     duration: INVALID_DURATION // set duration of server calculation in seconds
   })
-  const [resultFileUrls, setResultFileUrls] = useState<ResultFileUrls | null>(null)
-  const [resultFinishedModalOpened, setResultFinishedModalOpened] = useState(false)
+  const [resultFileUrl, setResultFileUrl] = useState<{
+    url: string
+    hasTxtDownload: boolean
+    hasSrtDownload: boolean
+    hasAudioDownload: boolean
+  } | null>(null)
   const [models, setModels] = useState<LanguageModel[]>([])
 
   useEffect(() => {
@@ -29,9 +31,8 @@ const Home: FC<{}> = () => {
   const uploadServiceRef = useRef(
     createTranscriptUploadService({
       onProgressUpdate: setProgess,
-      onSuccess: (url) => {
-        setResultFileUrls(generateResultFileUrls(url))
-        setResultFinishedModalOpened(true)
+      onSuccess: (url, hasTxtDownload, hasSrtDownload, hasAudioDownload) => {
+        setResultFileUrl({ url, hasTxtDownload, hasSrtDownload, hasAudioDownload })
       },
       onError: (error) => {
         toast.error(error)
@@ -42,7 +43,7 @@ const Home: FC<{}> = () => {
   )
 
   const resetInputs = () => {
-    setResultFileUrls(null)
+    setResultFileUrl(null)
     uploadServiceRef.current.resetToken()
     setIsLoading(false)
     setProgess({ status: 0, message: '', duration: INVALID_DURATION })
@@ -99,13 +100,8 @@ const Home: FC<{}> = () => {
           models={models}
           onStartUpload={onStartUpload}
           onReset={resetInputs}
-          resultFileUrls={resultFileUrls}
+          resultFileUrl={resultFileUrl}
           onTokenReset={handleTokenReset}
-        />
-
-        <ResultModal
-          open={resultFinishedModalOpened}
-          onClose={() => setResultFinishedModalOpened(false)}
         />
       </Paper>
     </Container>

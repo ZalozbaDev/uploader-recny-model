@@ -23,7 +23,12 @@ interface ProcessFlowProps {
     vad: boolean
   ) => void
   onReset: () => void
-  resultFileUrls: ResultFileUrls | null
+  resultFileUrl: {
+    url: string
+    hasTxtDownload: boolean
+    hasSrtDownload: boolean
+    hasAudioDownload: boolean
+  } | null
   onTokenReset?: () => void
 }
 
@@ -34,7 +39,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
   models,
   onStartUpload,
   onReset,
-  resultFileUrls,
+  resultFileUrl,
   onTokenReset
 }) => {
   const [selectedStep, setSelectedStep] = useState<ProcessStep | null>(null)
@@ -189,7 +194,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
                 <Box sx={{ textAlign: 'center' }}>
                   <ProgressSection isLoading={isLoading} progress={uploadProgress} />
 
-                  <ResultsSection resultFileUrls={resultFileUrls} onReset={onReset} />
+                  <ResultsSection resultFileUrl={resultFileUrl} onReset={onReset} />
                 </Box>
               )}
             </Box>

@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify'
-import { axiosInstanceTranscript, axiosInstanceSlownik } from '../lib/axios'
 import { sanitize } from '../helper/sanitizer'
 import { getStoredToken, generateAndStoreNewToken } from '../helper/token-storage'
 import { INVALID_DURATION } from '../types/constants'
+import { uploadTranscript, uploadSlownik, getStatus, getSlownikStatus, getDownloadUrl } from './api'
 
 const beepFile = require('../audio/message-notification.mp3')
 const audio = new Audio(beepFile)
@@ -15,7 +15,12 @@ export interface UploadProgress {
 
 export interface UploadCallbacks {
   onProgressUpdate: (progress: UploadProgress) => void
-  onSuccess: (resultFileUrl: string) => void
+  onSuccess: (
+    resultFileUrl: string,
+    hasTxtDownload: boolean,
+    hasSrtDownload: boolean,
+    hasAudioDownload: boolean
+  ) => void
   onError: (error: string) => void
   onLoadingChange: (isLoading: boolean) => void
 }
@@ -79,15 +84,6 @@ export class UploadService {
   private async handleTranscriptUpload(params: TranscriptUploadParams): Promise<void> {
     const { file, languageModel, translate, diarization, vad } = params
     const parsedFile = new File([file], sanitize(file.name), { type: file.type })
-    const formData = new FormData()
-
-    formData.append('filename', sanitize(parsedFile.name))
-    formData.append('token', this.token)
-    formData.append('languageModel', languageModel.name)
-    formData.append('file', parsedFile)
-    formData.append('translate', String(translate))
-    formData.append('diarization', String(diarization))
-    formData.append('vad', String(vad))
 
     this.callbacks.onProgressUpdate({
       status: 0,
@@ -95,10 +91,13 @@ export class UploadService {
       duration: INVALID_DURATION
     })
 
-    await axiosInstanceTranscript.post('/upload', formData, {
-      headers: {
-        'content-type': 'multipart/form-data'
-      }
+    await uploadTranscript({
+      file: parsedFile,
+      languageModel: languageModel.name,
+      token: this.token,
+      translate,
+      diarization,
+      vad
     })
 
     toast('Start 🚀')
@@ -114,18 +113,6 @@ export class UploadService {
 
   private async handleSlownikUpload(params: SlownikUploadParams): Promise<void> {
     const { files, lexFormat, outputFormat } = params
-    const formData = new FormData()
-
-    formData.append('filename', sanitize(files.korpus.name))
-    formData.append('token', this.token)
-    formData.append('languageModel', lexFormat)
-    formData.append('outputFormat', outputFormat)
-    formData.append('korpusname', files.korpus.name)
-    formData.append('phonmapname', files.phonmap.name)
-    formData.append('exceptionsname', files.exceptions.name)
-    formData.append('korpus', files.korpus)
-    formData.append('phonmap', files.phonmap)
-    formData.append('exceptions', files.exceptions)
 
     this.callbacks.onProgressUpdate({
       status: 0,
@@ -133,10 +120,11 @@ export class UploadService {
       duration: INVALID_DURATION
     })
 
-    await axiosInstanceSlownik.post('upload', formData, {
-      headers: {
-        'content-type': 'multipart/form-data'
-      }
+    await uploadSlownik({
+      files,
+      lexFormat,
+      outputFormat,
+      token: this.token
     })
 
     toast('Start 🚀')
@@ -156,15 +144,19 @@ export class UploadService {
     lexFormat?: LexFormat
   ): void {
     setTimeout(() => {
-      const axiosInstance = this.isTranscriptUpload ? axiosInstanceTranscript : axiosInstanceSlownik
-      const baseUrl = this.isTranscriptUpload
-        ? process.env.REACT_APP_API_URL_TRANSCRIPT
-        : process.env.REACT_APP_API_URL_SLOWNIK
+      const statusFunction = this.isTranscriptUpload ? getStatus : getSlownikStatus
 
-      axiosInstance
-        .get(`/status?token=${this.token}`)
+      statusFunction({ token: this.token })
         .then((response) => {
-          const { duration, done, status, message } = response.data
+          const {
+            duration,
+            done,
+            status,
+            message,
+            hasTxtDownload,
+            hasSrtDownload,
+            hasAudioDownload
+          } = response
           this.callbacks.onProgressUpdate({
             status: parseInt(status, 10),
             message,
@@ -172,15 +164,24 @@ export class UploadService {
           })
 
           if (done === true) {
-            const resultFileUrl = `${baseUrl}/download?token=${this.token}&filename=${sanitize(fileName)}`
+            const resultFileUrl = getDownloadUrl(
+              { token: this.token, filename: fileName },
+              this.isTranscriptUpload
+            )
 
-            this.handleSuccess(notificationPermission, resultFileUrl)
+            this.handleSuccess(
+              notificationPermission,
+              resultFileUrl,
+              hasTxtDownload,
+              hasSrtDownload,
+              hasAudioDownload
+            )
           } else {
             this.startStatusPolling(notificationPermission, fileName, lexFormat)
           }
         })
         .catch((error) => {
-          this.callbacks.onError(error.response?.data || 'Zmylk')
+          this.callbacks.onError(error.message || 'Zmylk')
           this.callbacks.onLoadingChange(false)
         })
     }, 1000)
@@ -188,7 +189,10 @@ export class UploadService {
 
   private handleSuccess(
     notificationPermission: NotificationPermission,
-    resultFileUrl: string
+    resultFileUrl: string,
+    hasTxtDownload: boolean,
+    hasSrtDownload: boolean,
+    hasAudioDownload: boolean
   ): void {
     if (notificationPermission === 'granted') {
       new Notification('Spóznawanje rěče', {
@@ -201,7 +205,7 @@ export class UploadService {
       console.log(error)
     })
 
-    this.callbacks.onSuccess(resultFileUrl)
+    this.callbacks.onSuccess(resultFileUrl, hasTxtDownload, hasSrtDownload, hasAudioDownload)
     toast('Dataja je so analysowala 🎉')
   }
 }

@@ -34,11 +34,3 @@ export const sanitize = (input: string, replacement: string = '') => {
 }
 
 export const removeExtension = (input: string): string => input.split('.').slice(0, -1).join('')
-
-export const generateResultFileUrls = (url: string): ResultFileUrls => {
-  return {
-    text: `${url}&outputFormat=txt`,
-    srt: `${url}&outputFormat=srt`,
-    wav: `${url}&outputFormat=wav`
-  }
-}
