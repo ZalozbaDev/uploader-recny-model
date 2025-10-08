@@ -3,11 +3,12 @@ import React, { FC } from 'react'
 import { FOOTER_HEIGHT } from '../types/constants'
 import { ROUTES } from '../routes/default'
 
-export const Footer: FC<{}> = () => {
+export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
   const [anchorElZorla, setAnchorElZorla] = React.useState<null | HTMLElement>(null)
   const [anchorElWotkazy, setAnchorElWotkazy] = React.useState<null | HTMLElement>(null)
   const openZorla = Boolean(anchorElZorla)
   const openWotkazy = Boolean(anchorElWotkazy)
+
   const handleClickZorla = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorElZorla(event.currentTarget)
   }
@@ -65,23 +66,7 @@ export const Footer: FC<{}> = () => {
           'aria-labelledby': 'basic-button'
         }}
       >
-        {getMenuPoint(
-          'Korla Baier small HSB (huggingface hub)',
-          'https://huggingface.co/spaces/Korla/hsb_stt_demo/tree/main'
-        )}
-        {getMenuPoint(
-          'Europeada 2022 HSB modele (huggingface hub)',
-          'https://huggingface.co/danielzoba/whisper_small_adapted_2024_06_03'
-        )}
-        {getMenuPoint(
-          'Fraunhofer IKTS (homepage)',
-          'https://www.ikts.fraunhofer.de/de/industrieloesungen/akustische_diagnostik/bio_sprachsignale.html'
-        )}
-        {getMenuPoint(
-          'Korla Baier large HSB (huggingface hub)',
-          'https://huggingface.co/Korla/whisper-large-hsb'
-        )}
-        {getMenuPoint('Wuwiće strony (homepage)', 'https://fs-coding.com')}
+        {models.map((model) => getMenuPoint(model.title, model.source))}
       </Menu>
       <Menu
         id='basic-menu'

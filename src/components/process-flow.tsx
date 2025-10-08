@@ -6,7 +6,6 @@ import AudioUploadSection from './audio-upload-section'
 import TextUploadSection from './text-upload-section'
 import SettingsSection, { SettingsState } from './settings-section'
 import ProcessStepper, { StepType } from './process-stepper'
-import { getModels } from '../services/models'
 import ProgressSection from './progress-section'
 import ResultsSection from './results-section'
 
@@ -14,6 +13,7 @@ interface ProcessFlowProps {
   isLoading: boolean
   isDisabled: boolean
   uploadProgress: UploadProgress
+  models: LanguageModel[]
   onStartUpload: (
     choosenModel: LanguageModel,
     file: File,
@@ -30,6 +30,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
   isLoading,
   isDisabled,
   uploadProgress,
+  models,
   onStartUpload,
   onReset,
   resultFileUrls,
@@ -48,13 +49,6 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
   const [devModeOpened, setDevModeOpened] = useState(false)
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
-  const [models, setModels] = useState<LanguageModel[]>([])
-
-  useEffect(() => {
-    getModels().then((data) => {
-      setModels(data)
-    })
-  }, [])
 
   const steps: StepType[] = [
     'select-process' as StepType,

@@ -1,5 +1,5 @@
 import { Container, Paper } from '@mui/material'
-import { FC, useState, useRef } from 'react'
+import { FC, useState, useRef, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { INVALID_DURATION } from '../types/constants'
 import HeaderSection from '../components/header-section'
@@ -7,6 +7,7 @@ import ProcessFlow from '../components/process-flow'
 import ResultModal from '../components/result-modal'
 import { createTranscriptUploadService } from '../services/upload-service'
 import { generateResultFileUrls } from '../helper/sanitizer'
+import { getModels } from '../services/models'
 
 const Home: FC<{}> = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -17,6 +18,13 @@ const Home: FC<{}> = () => {
   })
   const [resultFileUrls, setResultFileUrls] = useState<ResultFileUrls | null>(null)
   const [resultFinishedModalOpened, setResultFinishedModalOpened] = useState(false)
+  const [models, setModels] = useState<LanguageModel[]>([])
+
+  useEffect(() => {
+    getModels().then((data) => {
+      setModels(data)
+    })
+  }, [])
 
   const uploadServiceRef = useRef(
     createTranscriptUploadService({
@@ -88,6 +96,7 @@ const Home: FC<{}> = () => {
           isLoading={isLoading}
           isDisabled={isLoading}
           uploadProgress={progress}
+          models={models}
           onStartUpload={onStartUpload}
           onReset={resetInputs}
           resultFileUrls={resultFileUrls}

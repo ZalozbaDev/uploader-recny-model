@@ -1,10 +1,11 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Footer } from './components/footer'
 import 'react-toastify/dist/ReactToastify.css'
 import { useRoutes } from 'react-router-dom'
 import { defaultRoutes } from './routes/default'
 import { Box, ThemeProvider, createTheme, CssBaseline } from '@mui/material'
 import { FOOTER_HEIGHT } from './types/constants'
+import { getModels } from './services/models'
 
 const theme = createTheme({
   palette: {
@@ -65,6 +66,13 @@ const theme = createTheme({
 
 const App: FC<{}> = () => {
   const content = useRoutes(defaultRoutes)
+  const [models, setModels] = useState<LanguageModel[]>([])
+
+  useEffect(() => {
+    getModels().then((data) => {
+      setModels(data)
+    })
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
@@ -97,7 +105,7 @@ const App: FC<{}> = () => {
           {content}
         </Box>
 
-        <Footer />
+        <Footer models={models} />
       </Box>
     </ThemeProvider>
   )
