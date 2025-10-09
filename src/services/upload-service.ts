@@ -19,7 +19,8 @@ export interface UploadCallbacks {
     resultFileUrl: string,
     hasTxtDownload: boolean,
     hasSrtDownload: boolean,
-    hasAudioDownload: boolean
+    hasAudioDownload: boolean,
+    hasGermanSrtDownload: boolean
   ) => void
   onError: (error: string) => void
   onLoadingChange: (isLoading: boolean) => void
@@ -163,7 +164,8 @@ export class UploadService {
             message,
             hasTxtDownload,
             hasSrtDownload,
-            hasAudioDownload
+            hasAudioDownload,
+            hasGermanSrtDownload
           } = response
           this.callbacks.onProgressUpdate({
             status: parseInt(status, 10),
@@ -182,7 +184,8 @@ export class UploadService {
               resultFileUrl,
               hasTxtDownload,
               hasSrtDownload,
-              hasAudioDownload
+              hasAudioDownload,
+              hasGermanSrtDownload
             )
           } else {
             this.startStatusPolling(notificationPermission, fileName, lexFormat)
@@ -200,7 +203,8 @@ export class UploadService {
     resultFileUrl: string,
     hasTxtDownload: boolean,
     hasSrtDownload: boolean,
-    hasAudioDownload: boolean
+    hasAudioDownload: boolean,
+    hasGermanSrtDownload: boolean
   ): void {
     if (notificationPermission === 'granted') {
       new Notification('Spóznawanje rěče', {
@@ -213,7 +217,13 @@ export class UploadService {
       console.log(error)
     })
 
-    this.callbacks.onSuccess(resultFileUrl, hasTxtDownload, hasSrtDownload, hasAudioDownload)
+    this.callbacks.onSuccess(
+      resultFileUrl,
+      hasTxtDownload,
+      hasSrtDownload,
+      hasAudioDownload,
+      hasGermanSrtDownload
+    )
     toast('Dataja je so analysowala 🎉')
   }
 }

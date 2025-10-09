@@ -28,6 +28,7 @@ interface ProcessFlowProps {
     hasTxtDownload: boolean
     hasSrtDownload: boolean
     hasAudioDownload: boolean
+    hasGermanSrtDownload: boolean
   } | null
   onTokenReset?: () => void
 }

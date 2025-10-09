@@ -8,6 +8,7 @@ interface ResultsSectionProps {
     hasTxtDownload: boolean
     hasSrtDownload: boolean
     hasAudioDownload: boolean
+    hasGermanSrtDownload: boolean
   } | null
   onReset: () => void
 }
@@ -32,16 +33,25 @@ const ResultsSection: FC<ResultsSectionProps> = ({ resultFileUrl, onReset }) => 
         <Typography>
           Twój wotkaz za srt je{' '}
           <a href={resultFileUrl.url + '&outputFormat=srt'} target='_blank' rel='noreferrer'>
-            srt
+            tule
+          </a>
+          .
+        </Typography>
+      )}
+      {resultFileUrl.hasGermanSrtDownload && (
+        <Typography>
+          Twój wotkaz za němski srt je{' '}
+          <a href={resultFileUrl.url + '&outputFormat=de.srt'} target='_blank' rel='noreferrer'>
+            tule
           </a>
           .
         </Typography>
       )}
       {resultFileUrl.hasAudioDownload && (
         <Typography>
-          Twój wotkaz za wav je{' '}
+          Twój wotkaz za awdio je{' '}
           <a href={resultFileUrl.url + '&outputFormat=wav'} target='_blank' rel='noreferrer'>
-            wav
+            tule
           </a>
           .
         </Typography>

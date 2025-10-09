@@ -41,6 +41,7 @@ export interface StatusResponse {
   hasTxtDownload: boolean
   hasSrtDownload: boolean
   hasAudioDownload: boolean
+  hasGermanSrtDownload: boolean
 }
 
 export interface UploadResponse {

@@ -19,6 +19,7 @@ const Home: FC<{}> = () => {
     hasTxtDownload: boolean
     hasSrtDownload: boolean
     hasAudioDownload: boolean
+    hasGermanSrtDownload: boolean
   } | null>(null)
   const [models, setModels] = useState<LanguageModel[]>([])
 
@@ -31,8 +32,14 @@ const Home: FC<{}> = () => {
   const uploadServiceRef = useRef(
     createTranscriptUploadService({
       onProgressUpdate: setProgess,
-      onSuccess: (url, hasTxtDownload, hasSrtDownload, hasAudioDownload) => {
-        setResultFileUrl({ url, hasTxtDownload, hasSrtDownload, hasAudioDownload })
+      onSuccess: (url, hasTxtDownload, hasSrtDownload, hasAudioDownload, hasGermanSrtDownload) => {
+        setResultFileUrl({
+          url,
+          hasTxtDownload,
+          hasSrtDownload,
+          hasAudioDownload,
+          hasGermanSrtDownload
+        })
       },
       onError: (error) => {
         toast.error(error)
