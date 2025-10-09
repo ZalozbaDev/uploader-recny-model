@@ -43,7 +43,7 @@ export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
         justifyContent: 'center',
         flexWrap: 'wrap',
         gap: { xs: 0.5, sm: 1 },
-        padding: { xs: 1, sm: 2 }
+        paddingInline: { xs: 1, sm: 2 }
       }}
     >
       <Button sx={{ color: 'black', minWidth: 'auto' }} onClick={handleClickZorla}>
