@@ -145,7 +145,7 @@ const DubbingProcessFlow: FC<DubbingProcessFlowProps> = ({
             onClick={handleNext}
             disabled={!canProceedToNext() || isDisabled}
           >
-            {currentStepIndex === steps.length - 2 ? 'Start' : 'Dale'}
+            {currentStepIndex === steps.length - 2 ? 'start' : 'dale'}
           </Button>
         )}
       </Box>

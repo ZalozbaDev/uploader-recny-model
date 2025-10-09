@@ -176,7 +176,7 @@ const SlownikProcessFlow: FC<SlownikProcessFlowProps> = ({
             onClick={handleNext}
             disabled={!canProceedToNext() || isDisabled}
           >
-            {currentStepIndex === steps.length - 2 ? 'Start' : 'Dale'}
+            {currentStepIndex === steps.length - 2 ? 'start' : 'dale'}
           </Button>
         )}
       </Box>

@@ -268,7 +268,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
             onClick={handleNext}
             disabled={!canProceedToNext() || isDisabled}
           >
-            {currentStepIndex === steps.length - 2 ? 'Start' : 'Dale'}
+            {currentStepIndex === steps.length - 2 ? 'tart' : 'dale'}
           </Button>
         )}
       </Box>
