@@ -1,4 +1,3 @@
-export const DEFAULT_OUTPUT_FORMAT: OutputFormat = 'SRT'
 export const DEFAULT_LEX_FORMAT: LexFormat = 'KALDI'
 export const INVALID_DURATION = -1
 export const FOOTER_HEIGHT = 80
