@@ -20,8 +20,8 @@ export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
     setAnchorElWotkazy(null)
   }
 
-  const getMenuPoint = (text: string, link: string) => (
-    <MenuItem onClick={handleClose}>
+  const getMenuPoint = (text: string, link: string, key?: number) => (
+    <MenuItem onClick={handleClose} key={key || text}>
       <Link href={link} target='_blank' rel='noopener' color='inherit' underline='hover'>
         <Typography variant='caption'>{text}</Typography>
       </Link>
@@ -80,7 +80,7 @@ export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
           'aria-labelledby': 'basic-button'
         }}
       >
-        {models.map((model) => getMenuPoint(model.title, model.source))}
+        {models.map((model, i) => getMenuPoint(model.title, model.source, i))}
       </Menu>
       <Menu
         id='basic-menu'
