@@ -51,7 +51,6 @@ const Slownik: FC<{}> = () => {
     uploadServiceRef.current.startUpload({
       files,
       lexFormat,
-      outputFormat: 'TXT', // Default output format
       token: uploadServiceRef.current.getToken()
     })
   }

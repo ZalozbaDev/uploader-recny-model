@@ -19,7 +19,7 @@ const SlownikResultsSection: FC<SlownikResultsSectionProps> = ({ resultFileUrl, 
       </Typography>
       <Typography variant='body1' sx={{ marginBottom: 3 }}>
         Twój wotkaz je{' '}
-        <a href={resultFileUrl} target='_blank' rel='noopener noreferrer'>
+        <a href={resultFileUrl + '&outputFormat=txt'} target='_blank' rel='noopener noreferrer'>
           tule
         </a>
         .

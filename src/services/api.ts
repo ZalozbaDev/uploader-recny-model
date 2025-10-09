@@ -19,7 +19,6 @@ export interface SlownikUploadRequest {
     korpus: File
   }
   lexFormat: LexFormat
-  outputFormat: OutputFormat
   token: string
 }
 
@@ -86,13 +85,12 @@ export const uploadTranscript = async (
 
 export const uploadSlownik = async (params: SlownikUploadRequest): Promise<UploadResponse> => {
   try {
-    const { files, lexFormat, outputFormat, token } = params
+    const { files, lexFormat, token } = params
     const formData = new FormData()
 
     formData.append('filename', sanitize(files.korpus.name))
     formData.append('token', token)
     formData.append('languageModel', lexFormat)
-    formData.append('outputFormat', outputFormat)
     formData.append('korpusname', files.korpus.name)
     formData.append('phonmapname', files.phonmap.name)
     formData.append('exceptionsname', files.exceptions.name)

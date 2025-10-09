@@ -43,7 +43,6 @@ export interface SlownikUploadParams {
     korpus: File
   }
   lexFormat: LexFormat
-  outputFormat: OutputFormat
   token: string
 }
 
@@ -121,7 +120,7 @@ export class UploadService {
   }
 
   private async handleSlownikUpload(params: SlownikUploadParams): Promise<void> {
-    const { files, lexFormat, outputFormat } = params
+    const { files, lexFormat } = params
 
     this.callbacks.onProgressUpdate({
       status: 0,
@@ -132,7 +131,6 @@ export class UploadService {
     await uploadSlownik({
       files,
       lexFormat,
-      outputFormat,
       token: this.token
     })
 
