@@ -129,7 +129,7 @@ export const uploadDubbing = async (params: DubbingUploadRequest): Promise<Uploa
       formData.append('srtFile', files.srtFile)
     }
 
-    const response = await axiosInstanceSlownik.post('upload', formData, {
+    const response = await axiosInstanceDubbing.post('upload', formData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
