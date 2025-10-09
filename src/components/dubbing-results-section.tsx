@@ -19,7 +19,11 @@ const DubbingResultsSection: FC<DubbingResultsSectionProps> = ({ resultFileUrl, 
       </Typography>
       <Typography variant='body1' sx={{ marginBottom: 3 }}>
         Twój wotkaz je{' '}
-        <a href={resultFileUrl + '&outputFormat=mp4'} target='_blank' rel='noopener noreferrer'>
+        <a
+          href={`${resultFileUrl}&outputFormat=hsb.${resultFileUrl.split('.').pop()}`}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           tule
         </a>
         .
