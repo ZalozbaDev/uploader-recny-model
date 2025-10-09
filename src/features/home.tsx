@@ -98,8 +98,8 @@ const Home: FC<{}> = () => {
         }}
       >
         <HeaderSection
-          title='podtitulki a transkripty'
-          subtitle='BETA werzija *** StT-HSB-V0.3.0'
+          title='generator za protokole & podtitulki'
+          subtitle='werzija GPP-2.1 - DZFSBB'
         />
 
         <ProcessFlow

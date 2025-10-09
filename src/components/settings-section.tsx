@@ -59,7 +59,7 @@ const SettingsSection: FC<SettingsSectionProps> = ({
               fontSize: { xs: '1.1rem', sm: '1.25rem' }
             }}
           >
-            Tekst Untertitel přełožić
+            přidatnje hišće do němčiny přełožić
           </Typography>
           <FormControl fullWidth disabled={isDisabled} sx={{ maxWidth: { xs: '100%', sm: 400 } }}>
             <InputLabel>Wuzwol opciju</InputLabel>
@@ -70,8 +70,8 @@ const SettingsSection: FC<SettingsSectionProps> = ({
                 handleSettingChange('enableSubtitleTranslation', e.target.value === 'yes')
               }
             >
-              <MenuItem value='no'>Ně</MenuItem>
-              <MenuItem value='yes'>Haj</MenuItem>
+              <MenuItem value='no'>ně</MenuItem>
+              <MenuItem value='yes'>haj</MenuItem>
             </Select>
           </FormControl>
         </CardContent>
@@ -96,7 +96,7 @@ const SettingsSection: FC<SettingsSectionProps> = ({
                 fontSize: { xs: '1.1rem', sm: '1.25rem' }
               }}
             >
-              Eksperimentelne opcije
+              eksperimentelne opcije
             </Typography>
             <IconButton onClick={onToggleDevMode} sx={{ marginLeft: 1 }}>
               {devModeOpened ? <KeyboardArrowUp /> : <KeyboardArrowDown />}

@@ -22,36 +22,36 @@ const ResultsSection: FC<ResultsSectionProps> = ({ resultFileUrl, onReset }) => 
       <Typography>Hotowe!</Typography>
       {resultFileUrl.hasTxtDownload && (
         <Typography>
-          Twój wotkaz za tekst je{' '}
+          wotkaz za tekstowy dokument{' '}
           <a href={resultFileUrl.url + '&outputFormat=txt'} target='_blank' rel='noreferrer'>
-            tule
+            *.txt
           </a>
           .
         </Typography>
       )}
       {resultFileUrl.hasSrtDownload && (
         <Typography>
-          Twój wotkaz za srt je{' '}
+          wotkaz za serbske podtitulki {' '}
           <a href={resultFileUrl.url + '&outputFormat=srt'} target='_blank' rel='noreferrer'>
-            tule
+            *.srt
           </a>
           .
         </Typography>
       )}
       {resultFileUrl.hasGermanSrtDownload && (
         <Typography>
-          Twój wotkaz za němski srt je{' '}
+          wotkaz za němske podtitulki{' '}
           <a href={resultFileUrl.url + '&outputFormat=de.srt'} target='_blank' rel='noreferrer'>
-            tule
+            *.srt
           </a>
           .
         </Typography>
       )}
       {resultFileUrl.hasAudioDownload && (
         <Typography>
-          Twój wotkaz za awdio je{' '}
+          wotkaz za syntetiski dubbing{' '}
           <a href={resultFileUrl.url + '&outputFormat=wav'} target='_blank' rel='noreferrer'>
-            tule
+            awdijo/widejo
           </a>
           .
         </Typography>

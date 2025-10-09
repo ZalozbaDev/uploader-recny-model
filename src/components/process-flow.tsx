@@ -169,7 +169,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
             >
               {steps[currentStepIndex] === 'audio-upload' && (
                 <UploadSection
-                  title1='Zwuk a Model wuzwolić'
+                  title1='zwuk & model wuzwolić'
                   audioFile={audioFile}
                   model={choosenModel || models.filter((model) => !model.forceAlign).at(0)!}
                   models={models.filter((model) => !model.forceAlign)}
@@ -181,8 +181,8 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
 
               {steps[currentStepIndex] === 'text-and-audio-upload' && (
                 <UploadSection
-                  title1='Zwuk wuzwolić'
-                  title2='Tekst a model wuzwolić'
+                  title1='zwuk wuzwolić'
+                  title2='tekst & model wuzwolić'
                   audioFile={audioFile}
                   textFile={textFile}
                   model={choosenModel || models.filter((model) => model.forceAlign).at(0)!}
@@ -226,7 +226,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
         ) : (
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant='h6' sx={{ marginBottom: 3 }}>
-              Problem z Serwerom
+              Mam problem z serwerom !!!
             </Typography>
           </Box>
         )}
@@ -248,7 +248,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
           onClick={handleBack}
           disabled={currentStepIndex === 0 || isDisabled}
         >
-          Wróćo
+          wróćo
         </Button>
 
         {currentStepIndex < steps.length - 1 && (
