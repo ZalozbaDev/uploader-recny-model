@@ -18,7 +18,7 @@ const DataProtection: FC<{}> = () => {
         }}
       >
         <Typography variant='h4' textAlign='center'>
-          Škit datow
+          škit datow
         </Typography>
         <div id='c1089' className='csc-default'>
           <p className='bodytext'>
