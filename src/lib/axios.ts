@@ -9,3 +9,7 @@ export const axiosInstanceTranscript = axios.create({
 export const axiosInstanceSlownik = axios.create({
   baseURL: process.env.REACT_APP_API_URL_SLOWNIK
 })
+
+export const axiosInstanceDubbing = axios.create({
+  baseURL: process.env.REACT_APP_API_URL_DUBBING
+})
