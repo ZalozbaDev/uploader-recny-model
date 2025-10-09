@@ -27,11 +27,11 @@ const ProgressSection: FC<ProgressSectionProps> = ({ isLoading, progress }) => {
       <CardContent>
         <Box sx={{ textAlign: 'center' }}>
           <Typography variant='h6' sx={{ marginBottom: 2, fontWeight: 600 }}>
-            Začitam.... {progress.message}
+            {progress.message}
           </Typography>
           {progress.duration !== INVALID_DURATION && (
             <Typography variant='body2' color='text.secondary' sx={{ marginBottom: 2 }}>
-              Předźěłanje budźe někak {formatSecondsToReadableDuration(progress.duration)}h trać.
+              proces traje něhdźe {formatSecondsToReadableDuration(progress.duration)}h.
             </Typography>
           )}
           <LinearProgressWithLabel progress={progress.status} />

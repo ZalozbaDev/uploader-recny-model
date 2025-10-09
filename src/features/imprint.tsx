@@ -19,7 +19,7 @@ const Imprint: FC<{}> = () => {
       }}
     >
       <Typography variant='h4' textAlign='center'>
-        Impresum
+        impresum
       </Typography>
       <div id='c924' className='csc-default'>
         <p className='bodytext'>
