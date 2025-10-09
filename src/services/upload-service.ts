@@ -2,7 +2,15 @@ import { toast } from 'react-toastify'
 import { sanitize } from '../helper/sanitizer'
 import { getStoredToken, generateAndStoreNewToken } from '../helper/token-storage'
 import { INVALID_DURATION } from '../types/constants'
-import { uploadTranscript, uploadSlownik, getStatus, getSlownikStatus, getDownloadUrl } from './api'
+import {
+  uploadTranscript,
+  uploadSlownik,
+  uploadDubbing,
+  getStatus,
+  getSlownikStatus,
+  getDownloadUrl,
+  getDubbingStatus
+} from './api'
 
 const beepFile = require('../audio/message-notification.mp3')
 const audio = new Audio(beepFile)
@@ -46,16 +54,30 @@ export interface SlownikUploadParams {
   token: string
 }
 
-export type UploadParams = TranscriptUploadParams | SlownikUploadParams
+export interface DubbingUploadParams {
+  files: {
+    audioFile: File
+    srtFile: File | null
+  }
+  token: string
+}
+
+export type UploadParams = TranscriptUploadParams | SlownikUploadParams | DubbingUploadParams
 
 export class UploadService {
   private token: string
   private callbacks: UploadCallbacks
   private isTranscriptUpload: boolean
+  private isDubbingUpload: boolean
 
-  constructor(callbacks: UploadCallbacks, isTranscriptUpload: boolean = true) {
+  constructor(
+    callbacks: UploadCallbacks,
+    isTranscriptUpload: boolean = true,
+    isDubbingUpload: boolean = false
+  ) {
     this.callbacks = callbacks
     this.isTranscriptUpload = isTranscriptUpload
+    this.isDubbingUpload = isDubbingUpload
     this.token = getStoredToken()
   }
 
@@ -73,6 +95,8 @@ export class UploadService {
     try {
       if (this.isTranscriptUpload) {
         await this.handleTranscriptUpload(params as TranscriptUploadParams)
+      } else if (this.isDubbingUpload) {
+        await this.handleDubbingUpload(params as DubbingUploadParams)
       } else {
         await this.handleSlownikUpload(params as SlownikUploadParams)
       }
@@ -145,13 +169,42 @@ export class UploadService {
     this.startStatusPolling(permission, files.korpus.name, lexFormat)
   }
 
+  private async handleDubbingUpload(params: DubbingUploadParams): Promise<void> {
+    const { files } = params
+
+    this.callbacks.onProgressUpdate({
+      status: 0,
+      message: 'Začita so',
+      duration: INVALID_DURATION
+    })
+
+    await uploadDubbing({
+      files,
+      token: this.token
+    })
+
+    toast('Start 🚀')
+    const permission = await Notification.requestPermission()
+    this.callbacks.onProgressUpdate({
+      status: 0,
+      message: 'Začita so',
+      duration: INVALID_DURATION
+    })
+
+    this.startStatusPolling(permission, files.audioFile.name)
+  }
+
   private startStatusPolling(
     notificationPermission: NotificationPermission,
     fileName: string,
     lexFormat?: LexFormat
   ): void {
     setTimeout(() => {
-      const statusFunction = this.isTranscriptUpload ? getStatus : getSlownikStatus
+      const statusFunction = this.isTranscriptUpload
+        ? getStatus
+        : this.isDubbingUpload
+          ? getDubbingStatus
+          : getSlownikStatus
 
       statusFunction({ token: this.token })
         .then((response) => {
@@ -174,7 +227,8 @@ export class UploadService {
           if (done === true) {
             const resultFileUrl = getDownloadUrl(
               { token: this.token, filename: fileName },
-              this.isTranscriptUpload
+              this.isTranscriptUpload,
+              this.isDubbingUpload
             )
 
             this.handleSuccess(
@@ -233,4 +287,8 @@ export const createTranscriptUploadService = (callbacks: UploadCallbacks): Uploa
 
 export const createSlownikUploadService = (callbacks: UploadCallbacks): UploadService => {
   return new UploadService(callbacks, false)
+}
+
+export const createDubbingUploadService = (callbacks: UploadCallbacks): UploadService => {
+  return new UploadService(callbacks, false, true)
 }

@@ -4,6 +4,8 @@ type LexFormat = 'SAMPA' | 'KALDI' | 'UASR'
 
 type SlownikFiles = 'phonmap' | 'exceptions' | 'korpus'
 
+type DubbingFiles = 'audioFile' | 'srtFile'
+
 type UploadProgress = { status: number; message: string; duration: number }
 
 type LanguageModel = {

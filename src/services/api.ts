@@ -1,4 +1,4 @@
-import { axiosInstanceTranscript, axiosInstanceSlownik } from '../lib/axios'
+import { axiosInstanceTranscript, axiosInstanceSlownik, axiosInstanceDubbing } from '../lib/axios'
 import { sanitize } from '../helper/sanitizer'
 
 // Request types
@@ -21,7 +21,13 @@ export interface SlownikUploadRequest {
   lexFormat: LexFormat
   token: string
 }
-
+export interface DubbingUploadRequest {
+  files: {
+    audioFile: File
+    srtFile: File | null
+  }
+  token: string
+}
 export interface StatusRequest {
   token: string
 }
@@ -109,6 +115,31 @@ export const uploadSlownik = async (params: SlownikUploadRequest): Promise<Uploa
   }
 }
 
+export const uploadDubbing = async (params: DubbingUploadRequest): Promise<UploadResponse> => {
+  try {
+    const { files, token } = params
+    const formData = new FormData()
+
+    formData.append('audioFileName', sanitize(files.audioFile.name))
+    formData.append('token', token)
+    formData.append('audioFile', files.audioFile)
+
+    if (files.srtFile) {
+      formData.append('srtFileName', sanitize(files.srtFile.name))
+      formData.append('srtFile', files.srtFile)
+    }
+
+    const response = await axiosInstanceSlownik.post('upload', formData, {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    })
+    return response.data
+  } catch (error: any) {
+    throw new Error(error.response?.data || 'Upload failed')
+  }
+}
+
 export const getStatus = async (params: StatusRequest): Promise<StatusResponse> => {
   try {
     const { token } = params
@@ -129,11 +160,27 @@ export const getSlownikStatus = async (params: StatusRequest): Promise<StatusRes
   }
 }
 
-export const getDownloadUrl = (params: DownloadRequest, isTranscript: boolean = true): string => {
+export const getDubbingStatus = async (params: StatusRequest): Promise<StatusResponse> => {
+  try {
+    const { token } = params
+    const response = await axiosInstanceDubbing.get(`/status?token=${token}`)
+    return response.data
+  } catch (error: any) {
+    throw new Error(error.response?.data || 'Status check failed')
+  }
+}
+
+export const getDownloadUrl = (
+  params: DownloadRequest,
+  isTranscript: boolean = true,
+  isDubbing: boolean = false
+): string => {
   const { token, filename } = params
   const baseUrl = isTranscript
     ? process.env.REACT_APP_API_URL_TRANSCRIPT
-    : process.env.REACT_APP_API_URL_SLOWNIK
+    : isDubbing
+      ? process.env.REACT_APP_API_URL_DUBBING
+      : process.env.REACT_APP_API_URL_SLOWNIK
 
   return `${baseUrl}/download?token=${token}&filename=${sanitize(filename)}`
 }
