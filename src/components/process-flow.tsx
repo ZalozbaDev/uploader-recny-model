@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { ArrowBack, ArrowForward } from '@mui/icons-material'
 import StepSelector, { ProcessStep } from './step-selector'
@@ -63,6 +63,13 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
     'settings' as StepType,
     'upload' as StepType
   ]
+
+  useEffect(() => {
+    if (choosenModel == null && models.length > 0) {
+      setChoosenModel(models[0])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [models])
 
   const onSetAudioFile = (file: File) => {
     setAudioFile(file)
@@ -207,7 +214,6 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
                       setCurrentStepIndex(0)
                       setCompletedSteps([])
                       setAudioFile(null)
-                      setChoosenModel(null)
                       setTextFile(null)
                       onReset()
                     }}
