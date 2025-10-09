@@ -27,6 +27,7 @@ interface SettingsSectionProps {
   settings: SettingsState
   onSettingsChange: (settings: SettingsState) => void
   onToggleDevMode: () => void
+  hasDevMode: boolean
 }
 
 const SettingsSection: FC<SettingsSectionProps> = ({
@@ -34,7 +35,8 @@ const SettingsSection: FC<SettingsSectionProps> = ({
   isDisabled,
   settings,
   onSettingsChange,
-  onToggleDevMode
+  onToggleDevMode,
+  hasDevMode
 }) => {
   const handleSettingChange = (key: keyof SettingsState, value: boolean | number) => {
     onSettingsChange({
@@ -78,69 +80,73 @@ const SettingsSection: FC<SettingsSectionProps> = ({
       </Card>
 
       {/* Experimental Options */}
-      <Card>
-        <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: { xs: 1, sm: 2 },
-              flexWrap: 'wrap'
-            }}
-          >
-            <Typography
-              variant='h6'
-              sx={{
-                fontWeight: 600,
-                fontSize: { xs: '1.1rem', sm: '1.25rem' }
-              }}
-            >
-              eksperimentelne opcije
-            </Typography>
-            <IconButton onClick={onToggleDevMode} sx={{ marginLeft: 1 }}>
-              {devModeOpened ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-            </IconButton>
-          </Box>
-          {devModeOpened && (
+      {hasDevMode && (
+        <Card>
+          <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
             <Box
               sx={{
-                paddingTop: { xs: 1, sm: 2 },
                 display: 'flex',
-                flexDirection: 'column',
-                gap: { xs: 1.5, sm: 2 },
-                alignItems: 'center'
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: { xs: 1, sm: 2 },
+                flexWrap: 'wrap'
               }}
             >
-              <TextField
-                label='Rečniki'
-                type='number'
-                value={settings.diarization}
-                onChange={(e) => handleSettingChange('diarization', parseInt(e.target.value) || 0)}
-                disabled={isDisabled}
-                inputProps={{
-                  min: 0,
-                  max: 10,
-                  step: 1
+              <Typography
+                variant='h6'
+                sx={{
+                  fontWeight: 600,
+                  fontSize: { xs: '1.1rem', sm: '1.25rem' }
                 }}
-                sx={{ width: '100%', maxWidth: { xs: '100%', sm: 300 } }}
-              />
-
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={settings.vad}
-                    onChange={(e) => handleSettingChange('vad', e.target.checked)}
-                    disabled={isDisabled}
-                  />
-                }
-                label='VAD (Voice Activity Detection)'
-                sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}
-              />
+              >
+                Eksperimentelne opcije
+              </Typography>
+              <IconButton onClick={onToggleDevMode} sx={{ marginLeft: 1 }}>
+                {devModeOpened ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+              </IconButton>
             </Box>
-          )}
-        </CardContent>
-      </Card>
+            {devModeOpened && (
+              <Box
+                sx={{
+                  paddingTop: { xs: 1, sm: 2 },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: { xs: 1.5, sm: 2 },
+                  alignItems: 'center'
+                }}
+              >
+                <TextField
+                  label='Rečniki'
+                  type='number'
+                  value={settings.diarization}
+                  onChange={(e) =>
+                    handleSettingChange('diarization', parseInt(e.target.value) || 0)
+                  }
+                  disabled={isDisabled}
+                  inputProps={{
+                    min: 0,
+                    max: 10,
+                    step: 1
+                  }}
+                  sx={{ width: '100%', maxWidth: { xs: '100%', sm: 300 } }}
+                />
+
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={settings.vad}
+                      onChange={(e) => handleSettingChange('vad', e.target.checked)}
+                      disabled={isDisabled}
+                    />
+                  }
+                  label='VAD (Voice Activity Detection)'
+                  sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}
+                />
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+      )}
     </Box>
   )
 }

@@ -16,20 +16,20 @@ export const UploadSection: FC<{
       <FileUploader
         title='Wuzwol phonmap'
         file={files.phonmap}
-        acceptExtensions='.txt'
+        acceptExtensions='txt'
         isDisabled={isLoading}
         onSetFile={(file) => setFile('phonmap', file)}
       />
       <FileUploader
         title='Wuzwol exceptions'
-        acceptExtensions='.txt'
+        acceptExtensions='txt'
         file={files.exceptions}
         isDisabled={isLoading}
         onSetFile={(file) => setFile('exceptions', file)}
       />
       <FileUploader
         title='Wuzwol korpus'
-        acceptExtensions='.vocab'
+        acceptExtensions='vocab'
         file={files.korpus}
         isDisabled={isLoading}
         onSetFile={(file) => setFile('korpus', file)}
