@@ -23,9 +23,43 @@ export const FileUploader: FC<{
 }> = ({ title = 'Wuzwol dataju', file, isDisabled, acceptExtensions, onSetFile }) => {
   const uploadInputRef = useRef<HTMLInputElement>(null)
 
+  // Helper function to normalize file extensions
+  const normalizeExtensions = (extensions?: string): string => {
+    if (!extensions) return ''
+
+    return extensions
+      .split(',')
+      .map((ext) => ext.trim())
+      .map((ext) => (ext.startsWith('.') ? ext : `.${ext}`))
+      .join(',')
+  }
+
+  // Helper function to validate file extension
+  const isValidFileExtension = (fileName: string, acceptedExtensions?: string): boolean => {
+    if (!acceptedExtensions) return true
+
+    const normalizedExtensions = normalizeExtensions(acceptedExtensions)
+    const fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'))
+
+    return normalizedExtensions
+      .split(',')
+      .map((ext) => ext.trim().toLowerCase())
+      .includes(fileExtension)
+  }
+
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      onSetFile(e.target.files[0])
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0]
+
+      // Validate file extension if acceptExtensions is provided
+      if (acceptExtensions && !isValidFileExtension(selectedFile.name, acceptExtensions)) {
+        alert(
+          `Invalid file type. Please select a file with one of these extensions: ${acceptExtensions}`
+        )
+        return
+      }
+
+      onSetFile(selectedFile)
     }
   }
 
@@ -58,7 +92,12 @@ export const FileUploader: FC<{
         disabled={isDisabled}
       >
         {title}
-        <VisuallyHiddenInput type='file' onChange={onFileChange} accept={acceptExtensions} />
+        <VisuallyHiddenInput
+          ref={uploadInputRef}
+          type='file'
+          onChange={onFileChange}
+          accept={normalizeExtensions(acceptExtensions)}
+        />
       </Button>
       {file && (
         <Box sx={{ paddingTop: { xs: 0, sm: 0.5 } }}>
