@@ -72,6 +72,15 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [models])
 
+  useEffect(() => {
+    if (selectedStep === 'audio-with-text' && textFile == null) {
+      setChoosenModel(models.filter((model) => model.forceAlign).at(0)!)
+    } else if (selectedStep === 'audio-only' && audioFile == null) {
+      setChoosenModel(models.filter((model) => !model.forceAlign).at(0)!)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedStep])
+
   const onSetAudioFile = (file: File) => {
     setAudioFile(file)
   }
