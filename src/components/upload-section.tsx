@@ -53,7 +53,12 @@ const UploadSection: FC<UploadSectionProps> = ({
           width: '100%'
         }}
       >
-        <FileUploader file={audioFile} isDisabled={isDisabled} onSetFile={onSetAudioFile} />
+        <FileUploader
+          file={audioFile}
+          isDisabled={isDisabled}
+          onSetFile={onSetAudioFile}
+          acceptExtensions='mp3,wav,mp4,avi,m4a,ogg'
+        />
       </Box>
       {title2 && textFile !== undefined && onSetTextFile && (
         <>
@@ -66,7 +71,12 @@ const UploadSection: FC<UploadSectionProps> = ({
           >
             {title2}
           </Typography>
-          <FileUploader file={textFile} isDisabled={isDisabled} onSetFile={onSetTextFile} />
+          <FileUploader
+            file={textFile}
+            isDisabled={isDisabled}
+            onSetFile={onSetTextFile}
+            acceptExtensions='txt'
+          />
         </>
       )}
       <Box
