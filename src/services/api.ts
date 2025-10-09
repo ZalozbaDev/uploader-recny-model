@@ -71,7 +71,7 @@ export const uploadTranscript = async (
     formData.append('diarization', String(diarization))
     formData.append('vad', String(vad))
 
-    const response = await axiosInstanceTranscript.post('/upload', formData, {
+    const response = await axiosInstanceTranscript.post(`/upload?token=${token}`, formData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
