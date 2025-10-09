@@ -210,6 +210,7 @@ const ProcessFlow: FC<ProcessFlowProps> = ({
                   settings={settings}
                   onSettingsChange={setSettings}
                   onToggleDevMode={onToggleDevMode}
+                  hasDevMode={textFile === null}
                 />
               )}
 
