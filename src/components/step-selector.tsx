@@ -49,7 +49,7 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
               zwuk
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              mam jenož awdijo
+              awdijo / widejo
             </Typography>
           </CardContent>
         </Card>
@@ -71,7 +71,7 @@ const StepSelector: FC<StepSelectorProps> = ({ selectedStep, onStepSelect }) => 
         >
           <CardContent sx={{ padding: { xs: 2, sm: 3 } }}>
             <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1 }}>
-              zwuk & tekst
+              zwuk/widejo + tekst
             </Typography>
             <Typography variant='body2' color='text.secondary'>
               mam woboje
