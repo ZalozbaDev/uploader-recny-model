@@ -98,7 +98,7 @@ const Home: FC<{}> = () => {
         }}
       >
         <HeaderSection
-          title='generator za protokole & podtitulki'
+          title='generator za protokole & podtitulki @youtube'
           subtitle='werzija GPP-2.1 - DZFSBB'
         />
 
