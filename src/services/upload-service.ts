@@ -68,7 +68,6 @@ export class UploadService {
   }
 
   public async startUpload(params: UploadParams): Promise<void> {
-    console.log('-1')
     this.callbacks.onLoadingChange(true)
 
     try {
