@@ -5,6 +5,7 @@ import { INVALID_DURATION } from '../types/constants'
 import {
   uploadTranscript,
   uploadSlownik,
+  uploadDubbing,
   getStatus,
   getSlownikStatus,
   getDownloadUrl,
@@ -53,7 +54,15 @@ export interface SlownikUploadParams {
   token: string
 }
 
-export type UploadParams = TranscriptUploadParams | SlownikUploadParams
+export interface DubbingUploadParams {
+  files: {
+    audioFile: File
+    srtFile: File | null
+  }
+  token: string
+}
+
+export type UploadParams = TranscriptUploadParams | SlownikUploadParams | DubbingUploadParams
 
 export class UploadService {
   private token: string
@@ -86,6 +95,8 @@ export class UploadService {
     try {
       if (this.isTranscriptUpload) {
         await this.handleTranscriptUpload(params as TranscriptUploadParams)
+      } else if (this.isDubbingUpload) {
+        await this.handleDubbingUpload(params as DubbingUploadParams)
       } else {
         await this.handleSlownikUpload(params as SlownikUploadParams)
       }
@@ -156,6 +167,31 @@ export class UploadService {
     })
 
     this.startStatusPolling(permission, files.korpus.name, lexFormat)
+  }
+
+  private async handleDubbingUpload(params: DubbingUploadParams): Promise<void> {
+    const { files } = params
+
+    this.callbacks.onProgressUpdate({
+      status: 0,
+      message: 'Začita so',
+      duration: INVALID_DURATION
+    })
+
+    await uploadDubbing({
+      files,
+      token: this.token
+    })
+
+    toast('Start 🚀')
+    const permission = await Notification.requestPermission()
+    this.callbacks.onProgressUpdate({
+      status: 0,
+      message: 'Začita so',
+      duration: INVALID_DURATION
+    })
+
+    this.startStatusPolling(permission, files.audioFile.name)
   }
 
   private startStatusPolling(
@@ -251,4 +287,8 @@ export const createTranscriptUploadService = (callbacks: UploadCallbacks): Uploa
 
 export const createSlownikUploadService = (callbacks: UploadCallbacks): UploadService => {
   return new UploadService(callbacks, false)
+}
+
+export const createDubbingUploadService = (callbacks: UploadCallbacks): UploadService => {
+  return new UploadService(callbacks, false, true)
 }
