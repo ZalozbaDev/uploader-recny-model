@@ -3,7 +3,7 @@
 ## HFHSB
 
 1. defaults (text,srt)
-2. vad=off (onyl text)
+2. vad=off (text)
 3. translate=on (text,srt,srt)
 
 ## BOZA_MSA
@@ -37,3 +37,6 @@
 1. default (srt)
 2. with srt (srt)
 
+# Fonetika
+
+1. default (lex)
