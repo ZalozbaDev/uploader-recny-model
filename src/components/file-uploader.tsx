@@ -20,7 +20,7 @@ export const FileUploader: FC<{
   isDisabled: boolean
   acceptExtensions?: string
   onSetFile: (file: File) => void
-}> = ({ title = 'Wuzwol dataju', file, isDisabled, acceptExtensions, onSetFile }) => {
+}> = ({ title = 'zwol dataju', file, isDisabled, acceptExtensions, onSetFile }) => {
   const uploadInputRef = useRef<HTMLInputElement>(null)
 
   // Helper function to normalize file extensions
@@ -102,7 +102,7 @@ export const FileUploader: FC<{
       {file && (
         <Box sx={{ paddingTop: { xs: 0, sm: 0.5 } }}>
           <Typography variant='body1' textAlign={{ xs: 'center', sm: 'left' }}>
-            Drobnosće dataje:
+            atributy twojeje dataje:
           </Typography>
           <Typography variant='body2' textAlign={{ xs: 'center', sm: 'left' }}>
             * mjeno: {file.name}

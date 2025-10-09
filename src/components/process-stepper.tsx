@@ -6,6 +6,7 @@ export type StepType =
   | 'audio-upload'
   | 'text-and-audio-upload'
   | 'text-upload'
+  | 'file-upload'
   | 'settings'
   | 'upload'
 
@@ -38,6 +39,8 @@ const getStepLabel = (step: StepType): string => {
       return 'awdijo & tekst upload'
     case 'text-upload':
       return 'tekst nakładować'
+    case 'file-upload':
+      return 'dataje nakładować'
     case 'settings':
       return 'nastajenja'
     case 'upload':
