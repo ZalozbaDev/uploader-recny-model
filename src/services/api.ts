@@ -71,7 +71,6 @@ export const uploadTranscript = async (
     }
 
     // Add body parameters as expected by the server
-    formData.append('token', token)
     formData.append('model', languageModel)
     formData.append('translate', String(translate))
     formData.append('diarization', String(diarization))
@@ -95,7 +94,6 @@ export const uploadSlownik = async (params: SlownikUploadRequest): Promise<Uploa
     const formData = new FormData()
 
     formData.append('filename', sanitize(files.korpus.name))
-    formData.append('token', token)
     formData.append('languageModel', lexFormat)
     formData.append('korpusname', files.korpus.name)
     formData.append('phonmapname', files.phonmap.name)
@@ -104,7 +102,7 @@ export const uploadSlownik = async (params: SlownikUploadRequest): Promise<Uploa
     formData.append('phonmap', files.phonmap)
     formData.append('exceptions', files.exceptions)
 
-    const response = await axiosInstanceSlownik.post('upload', formData, {
+    const response = await axiosInstanceSlownik.post(`/upload?token=${token}`, formData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
@@ -121,7 +119,6 @@ export const uploadDubbing = async (params: DubbingUploadRequest): Promise<Uploa
     const formData = new FormData()
 
     formData.append('audioFileName', sanitize(files.audioFile.name))
-    formData.append('token', token)
     formData.append('audioFile', files.audioFile)
 
     if (files.srtFile) {
@@ -129,7 +126,7 @@ export const uploadDubbing = async (params: DubbingUploadRequest): Promise<Uploa
       formData.append('srtFile', files.srtFile)
     }
 
-    const response = await axiosInstanceSlownik.post('upload', formData, {
+    const response = await axiosInstanceDubbing.post(`/upload?token=${token}`, formData, {
       headers: {
         'content-type': 'multipart/form-data'
       }
