@@ -53,7 +53,7 @@ const Dubbing: FC<{}> = () => {
         elevation={8}
         sx={{
           padding: { xs: 2, sm: 3 },
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backgroundColor: 'rgba(236, 142, 0, 0.95)',
           backdropFilter: 'blur(10px)',
           borderRadius: { xs: 2, sm: 3 },
           height: '100%',
@@ -63,7 +63,7 @@ const Dubbing: FC<{}> = () => {
           border: '1px solid rgba(255, 255, 255, 0.2)'
         }}
       >
-        <HeaderSection title='Dubbing' subtitle='BETA werzija *** StT-HSB-V0.0.12' />
+        <HeaderSection title='ki - synchronizacija' subtitle='BETA werzija *** StT-HSB-V0.0.12' />
 
         <DubbingProcessFlow
           isLoading={isLoading}
