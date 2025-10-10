@@ -102,6 +102,10 @@ export const Footer: FC<{ models: LanguageModel[] }> = ({ models }) => {
           'Žórła servera (github)',
           'https://github.com/ZalozbaDev/uploader-recny-model-server/'
         )}
+        {getMenuPoint(
+          'Prelozowanski program sotra poskićene wot Rěčneho centruma WITAJ, Domowina  Zwjazk Łužiskich Serbow z. t.',
+          'https://www.witaj-sprachzentrum.de/'
+        )}
       </Menu>
     </Box>
   )
