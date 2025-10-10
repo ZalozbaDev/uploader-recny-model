@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 import { sanitize } from '../helper/sanitizer'
-import { getStoredToken, generateAndStoreNewToken } from '../helper/token-storage'
+import { generateId } from '../helper/random'
 import { INVALID_DURATION } from '../types/constants'
 import {
   uploadTranscript,
@@ -78,7 +78,7 @@ export class UploadService {
     this.callbacks = callbacks
     this.isTranscriptUpload = isTranscriptUpload
     this.isDubbingUpload = isDubbingUpload
-    this.token = getStoredToken()
+    this.token = generateId(32)
   }
 
   public getToken(): string {
@@ -86,7 +86,7 @@ export class UploadService {
   }
 
   public resetToken(): void {
-    this.token = generateAndStoreNewToken()
+    this.token = generateId(32)
   }
 
   public async startUpload(params: UploadParams): Promise<void> {
