@@ -71,7 +71,7 @@ const Slownik: FC<{}> = () => {
           border: '1px solid rgba(255, 255, 255, 0.2)'
         }}
       >
-        <HeaderSection title='Fonetiski słownik' subtitle='BETA werzija *** StT-HSB-V0.0.12' />
+        <HeaderSection title='Fonetiski słownik' subtitle='BETA wersija *** StT-HSB-V0.0.12' />
 
         <SlownikProcessFlow
           isLoading={isLoading}

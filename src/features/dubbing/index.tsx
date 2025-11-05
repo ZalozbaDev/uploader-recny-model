@@ -63,7 +63,7 @@ const Dubbing: FC<{}> = () => {
           border: '1px solid rgba(255, 255, 255, 0.2)'
         }}
       >
-        <HeaderSection title='ki - synchronizacija' subtitle='BETA werzija *** StT-HSB-V0.0.12' />
+        <HeaderSection title='ki - synchronizacija' subtitle='BETA wersija *** StT-HSB-V0.0.12' />
 
         <DubbingProcessFlow
           isLoading={isLoading}
