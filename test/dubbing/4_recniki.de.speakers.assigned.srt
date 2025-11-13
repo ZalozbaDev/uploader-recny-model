@@ -1,10 +1,10 @@
 1
 00:00:00,000 --> 00:00:00,000
-[SPEAKER_01]: cyril,Male
+[SPEAKER_01]: korla2+daniel,Male
 
 2
 00:00:00,000 --> 00:00:00,000
-[SPEAKER_02]: korla2,Male
+[SPEAKER_02]: katka_2025_07+daniel,Male
 
 3
 00:00:00,000 --> 00:00:00,000
@@ -12,7 +12,7 @@
 
 4
 00:00:00,000 --> 00:00:00,000
-[SPEAKER_04]: weronika,Female
+[SPEAKER_04]: katka_2025_07+multi_2025_02_11,Female
 
 5
 00:00:00,030 --> 00:00:02,680
