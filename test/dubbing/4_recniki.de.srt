@@ -1,208 +1,414 @@
 1
-00:00:00,030 --> 00:00:02,680
-Frau Müller, herzlich willkommen in unserem Meeting Room.
+00:00:00,030 --> 00:00:01,506
+Frau Müller, herzlich willkommen
 
 2
-00:00:03,372 --> 00:00:09,734
-Wie Sie sehen, haben wir die Fenster geputzt, wir haben frisch alles desinfiziert. Ja, alle Viren sind entfernt, meine Damen, Sie sind hier sicher.
+00:00:01,530 --> 00:00:02,680
+in unserem Meeting Room.
 
 3
-00:00:10,442 --> 00:00:20,483
-Ja, ich wollte mich ganz kurz entschuldigen, ich habe nämlich heute ein bisschen zu viel Knoblauch gegessen, aber keine Angst, ich habe vorgesorgt. Ich habe Kaugummis, auch genug für alle, also falls jemand noch will.
+00:00:03,372 --> 00:00:06,280
+Wie Sie sehen, haben wir die
+Fenster geputzt, wir haben frisch alles
 
 4
+00:00:06,304 --> 00:00:09,734
+desinfiziert. Ja, alle Viren sind entfernt,
+meine Damen, Sie sind hier sicher.
+
+5
+00:00:10,442 --> 00:00:12,934
+Ja, ich wollte mich ganz
+kurz entschuldigen, ich habe
+
+6
+00:00:12,958 --> 00:00:15,451
+nämlich heute ein bisschen
+zu viel Knoblauch gegessen,
+
+7
+00:00:15,475 --> 00:00:18,131
+aber keine Angst, ich habe
+vorgesorgt. Ich habe Kaugummis,
+
+8
+00:00:18,155 --> 00:00:20,483
+auch genug für alle,
+also falls jemand noch will.
+
+9
 00:00:22,356 --> 00:00:23,841
 Ja, warum eigentlich nicht?
 
-5
+10
 00:00:24,550 --> 00:00:25,647
 Oh, vielen Dank.
 
-6
-00:00:26,895 --> 00:00:32,498
-Ach, Sie haben Kirsche. Das ist ja besonders gut gegen Muskelkater, nicht? Weil es die freien Radikale im Blut einfängt.
-
-7
-00:00:32,667 --> 00:00:40,952
-Gut, dann können wir jetzt ja endlich beginnen, bevor es hier noch mehr Radikale gibt. Herr Dr. Schmidke, hatten Sie meinen Wunsch, die Bauzeit auf zwölf Monate zu verkürzen, vergessen oder einfach ignoriert?
-
-8
-00:00:42,555 --> 00:00:48,647
-Frau Dr. Pestlage, vielleicht sprechen wir zunächst über die geplante Neuausrichtung der Versicherung. Ich hatte noch in meiner Mail vom 22.
-
-9
-00:00:47,027 --> 00:00:54,959
-Ich hätte doch in meiner Mail vom 22. ... schlecht ausgedrückt habe. Es ist sehr unwahrscheinlich, dass ich es habe. Aber für den Fall, dass ich mich schlecht ausgedrückt habe, möchte ich dann doch die Gelegenheit einmal nutzen.
-
-10
-00:00:55,161 --> 00:01:01,219
-um mit Nachdruck darauf hinzuweisen, also mit Nachdruck. Wenn unser kleines Gespräch jetzt Brief wäre, dann wäre die kommende Zeile unterstrichen, vielleicht sogar fett gedruckt.
-
 11
-00:01:01,455 --> 00:01:04,105
-dass es sich um keine Frage, um keine Bitte handelt, sondern um einen Wunsch.
+00:00:26,895 --> 00:00:29,358
+Ach, Sie haben Kirsche.
+Das ist ja besonders gut gegen
 
 12
-00:01:04,679 --> 00:01:09,758
-Ein Wunsch, der einer Bedingung gleich kommt. Und um das gleich zu klären, dass nichts zwischen uns hier in der Luft liegt, würde ich dich mal bitten, Monika.
+00:00:29,382 --> 00:00:32,498
+Muskelkater, nicht? Weil es die
+freien Radikale im Blut einfängt.
 
 13
-00:01:11,024 --> 00:01:13,690
-Monika, könntest du bitte mal im Protokoll der letzten Woche nachschauen?
+00:00:32,667 --> 00:00:34,720
+Gut, dann können wir jetzt
+ja endlich beginnen, bevor
 
 14
-00:01:14,280 --> 00:01:18,786
-Lassen Sie mich an der Stelle kurz erwähnen, dass wir die Realisationsphase ja komplett neu planen müssen.
+00:00:34,744 --> 00:00:36,798
+es hier noch mehr Radikale
+gibt. Herr Dr. Schmittke,
 
 15
-00:01:17,031 --> 00:01:21,419
-Kein Problem. Ich habe das Protokoll hier direkt vor meiner Nase. Ganz kleinen Moment.
+00:00:36,822 --> 00:00:38,691
+hatten Sie meinen Wunsch,
+die Bauzeit auf zwölf
 
 16
-00:01:21,874 --> 00:01:25,367
-Genau, der Wunsch nach einer Bauzeit von zwölf Monaten.
+00:00:38,715 --> 00:00:40,952
+Monate zu verkürzen,
+vergessen oder einfach ignoriert?
 
 17
-00:01:25,671 --> 00:01:28,422
-Da haben wir im Protokoll festgehalten, dass das ein hochrelevanter
+00:00:42,555 --> 00:00:45,589
+Frau Dr. Westlake, vielleicht
+sprechen wir zunächst über die geplante
 
 18
-00:01:28,945 --> 00:01:33,450
-Kernwunsch aller beteiligten Gläubiger ist und ich habe es natürlich auch unterstrichen.
+00:00:45,613 --> 00:00:48,647
+Neuausrichtung der Versicherung.
+Ich hatte noch in meiner Mail vom 22.
 
 19
-00:01:34,260 --> 00:01:39,070
-Ja, ich möchte dem Protokoll ja auf keinen Fall widersprechen. Es ist auch von Ihrer Firma unterschrieben.
+00:00:47,027 --> 00:00:49,131
+Ich hätte doch in meiner Mail
+vom 22. ... schlecht ausgedrückt
 
 20
-00:01:36,522 --> 00:01:40,352
-Das ist auch von Ihrer Firma unterschrieben und abgesegnet worden.
+00:00:49,155 --> 00:00:51,016
+habe. Es ist sehr
+unwahrscheinlich, dass ich es habe.
 
 21
+00:00:51,040 --> 00:00:52,881
+Aber für den Fall, dass ich
+mich schlecht ausgedrückt
+
+22
+00:00:52,905 --> 00:00:54,959
+habe, möchte ich dann doch
+die Gelegenheit einmal nutzen.
+
+23
+00:00:55,161 --> 00:00:56,658
+um mit Nachdruck darauf
+hinzuweisen, also mit
+
+24
+00:00:56,682 --> 00:00:58,178
+Nachdruck. Wenn unser
+kleines Gespräch jetzt
+
+25
+00:00:58,202 --> 00:00:59,558
+Brief wäre, dann wäre
+die kommende Zeile
+
+26
+00:00:59,582 --> 00:01:01,219
+unterstrichen, vielleicht
+sogar fett gedruckt.
+
+27
+00:01:01,455 --> 00:01:02,768
+dass es sich um
+keine Frage, um keine
+
+28
+00:01:02,792 --> 00:01:04,105
+Bitte handelt, sondern
+um einen Wunsch.
+
+29
+00:01:04,679 --> 00:01:07,207
+Ein Wunsch, der einer Bedingung gleich
+kommt. Und um das gleich zu klären, dass
+
+30
+00:01:07,231 --> 00:01:09,758
+nichts zwischen uns hier in der Luft
+liegt, würde ich dich mal bitten, Monika.
+
+31
+00:01:11,024 --> 00:01:12,181
+Monika, könntest du bitte mal im
+
+32
+00:01:12,205 --> 00:01:13,690
+Protokoll der letzten
+Woche nachschauen?
+
+33
+00:01:14,280 --> 00:01:16,521
+Lassen Sie mich an der
+Stelle kurz erwähnen, dass wir
+
+34
+00:01:16,545 --> 00:01:18,786
+die Realisationsphase ja
+komplett neu planen müssen.
+
+35
+00:01:17,031 --> 00:01:19,060
+Kein Problem. Ich
+habe das Protokoll hier
+
+36
+00:01:19,084 --> 00:01:21,419
+direkt vor meiner Nase.
+Ganz kleinen Moment.
+
+37
+00:01:21,874 --> 00:01:25,367
+Genau, der Wunsch nach einer
+Bauzeit von zwölf Monaten.
+
+38
+00:01:25,671 --> 00:01:28,422
+Da haben wir im Protokoll
+festgehalten, dass das ein hochrelevanter
+
+39
+00:01:28,945 --> 00:01:31,056
+Kernwunsch aller
+beteiligten Gläubiger ist
+
+40
+00:01:31,080 --> 00:01:33,450
+und ich habe es natürlich
+auch unterstrichen.
+
+41
+00:01:34,260 --> 00:01:36,335
+Ja, ich möchte dem
+Protokoll ja auf keinen Fall
+
+42
+00:01:36,359 --> 00:01:39,070
+widersprechen. Es ist auch
+von Ihrer Firma unterschrieben.
+
+43
+00:01:36,522 --> 00:01:40,352
+Das ist auch von Ihrer Firma
+unterschrieben und abgesegnet worden.
+
+44
 00:01:40,740 --> 00:01:43,019
 Und zwar von einem Herrn Doktor.
 
-22
+45
 00:01:43,103 --> 00:01:43,694
-Schmütge.
+Schmittke.
 
-23
+46
 00:01:44,504 --> 00:01:48,503
-Richtig. Und das erklärt sich am besten dadurch, dass wir im letzten Briefing...
+Richtig. Und das erklärt sich am besten
+dadurch, dass wir im letzten Briefing...
 
-24
-00:01:48,014 --> 00:01:57,953
-Ja, wissen Sie, ich hatte heute schon mehr Telcos als die USA-Coronatote. Deshalb habe ich einen Vorschlag, der ist bei aller Bescheidenheit so zielführend, dass Sie ihn kaum ablehnen können. Sie überarbeiten das Konzept.
+47
+00:01:48,014 --> 00:01:50,346
+Ja, wissen Sie, ich hatte
+heute schon mehr Telcos als
 
-25
-00:01:58,223 --> 00:02:01,142
-An dem schon vieles stimmt. Ich möchte hier bestimmt keine schlechte Stimmung verbreiten.
+48
+00:01:50,370 --> 00:01:52,972
+die USA Coronatote. Deshalb
+habe ich einen Vorschlag, der
 
-26
-00:02:01,632 --> 00:02:14,744
-schließlich erfreuen wir uns ja alle dieser großartigen Zusammenarbeit. Also, Sie überarbeiten das fantastische Konzept mit der klitzekleinen Änderung, die Bauzeit auf zwölf Monate zu begrenzen und dann schicken Sie es uns bis morgen früh, wenn Sie gut sind, bis heute Abend. Monika?
+49
+00:01:52,996 --> 00:01:55,462
+ist bei aller Bescheidenheit
+so zielführend, dass Sie
 
-27
-00:02:16,262 --> 00:02:20,346
-Schreibt bitte mal ins Protokoll, erstickt es uns. Bis heute Abend. Dr. Schmidke ist ein Guter.
+50
+00:01:55,486 --> 00:01:57,953
+ihn kaum ablehnen können.
+Sie überarbeiten das Konzept.
 
-28
+51
+00:01:58,223 --> 00:01:59,671
+An dem schon vieles
+stimmt. Ich möchte hier
+
+52
+00:01:59,695 --> 00:02:01,142
+bestimmt keine schlechte
+Stimmung verbreiten.
+
+53
+00:02:01,632 --> 00:02:04,892
+schließlich erfreuen wir uns ja alle
+dieser großartigen Zusammenarbeit.
+
+54
+00:02:04,916 --> 00:02:08,176
+Also, Sie überarbeiten das
+fantastische Konzept mit der klitzekleinen
+
+55
+00:02:08,200 --> 00:02:11,460
+Änderung, die Bauzeit auf zwölf
+Monate zu begrenzen und dann schicken
+
+56
+00:02:11,484 --> 00:02:14,744
+Sie es uns bis morgen früh, wenn
+Sie gut sind, bis heute Abend. Monika?
+
+57
+00:02:16,262 --> 00:02:18,142
+Schreibt bitte mal ins
+Protokoll, erstickt es
+
+58
+00:02:18,166 --> 00:02:20,346
+uns. Bis heute Abend.
+Dr. Schmittke ist ein Guter.
+
+59
 00:02:20,920 --> 00:02:24,345
-Das bedeutet für uns wirklich einen gewaltigen Mehraufwand.
+Das bedeutet für uns wirklich
+einen gewaltigen Mehraufwand.
 
-29
+60
 00:02:24,565 --> 00:02:25,712
-Ja, Herr Dr. Schmidke, ja.
+Ja, Herr Dr. Schmittke, ja.
 
-30
+61
 00:02:30,505 --> 00:02:31,500
 Gut.
 
-31
-00:02:32,462 --> 00:02:38,588
-Ähm, haben Sie da noch eine Bemerkung zur aktualisierten Unbedenklichkeitsbescheinigung im Exposé? Das ist Seite 7.
+62
+00:02:32,462 --> 00:02:35,513
+Ähm, haben Sie da noch eine
+Bemerkung zur aktualisierten
 
-32
+63
+00:02:35,537 --> 00:02:38,588
+Unbedenklichkeitsbescheinigung
+im Exposé? Das ist Seite 7.
+
+64
 00:02:38,740 --> 00:02:39,347
 Monika?
 
-33
+65
 00:02:41,288 --> 00:02:42,182
 Irgendwelche Anmerkungen?
 
-34
+66
 00:02:42,925 --> 00:02:44,005
 Keine weiteren Anmerkungen.
 
-35
+67
 00:02:44,477 --> 00:02:45,507
 Keine weiteren Anmerkungen.
 
-36
+68
 00:02:50,755 --> 00:02:51,784
 Grüß.
 
-37
+69
 00:02:53,033 --> 00:02:54,636
 Moment.
 
-38
+70
 00:02:55,750 --> 00:02:57,302
 Simon, was hatten wir noch auf der Liste?
 
-39
+71
 00:02:58,619 --> 00:03:00,390
 Wir hatten noch den Bodenrichtpreis.
 
-40
+72
 00:03:02,652 --> 00:03:05,082
-Keine weiteren Anmerkungen. Keine weiteren Anmerkungen.
+Keine weiteren Anmerkungen.
+Keine weiteren Anmerkungen.
 
-41
-00:03:09,503 --> 00:03:12,929
-Herr Dr. Schmidke, sind Sie jetzt eingefroren oder ist die Internetverbindung schlecht?
+73
+00:03:09,503 --> 00:03:11,224
+Herr Dr. Schmidke,
+sind Sie jetzt eingefroren
 
-42
+74
+00:03:11,248 --> 00:03:12,929
+oder ist die
+Internetverbindung schlecht?
+
+75
 00:03:14,532 --> 00:03:19,476
-Ja, also Simon, du schreibst das mit, keine Anmerkungen?
+Ja, also Simon, du schreibst
+das mit, keine Anmerkungen?
 
-43
-00:03:22,530 --> 00:03:28,639
-Also wenn das so ist, Frau Dr. Westlake, dann bin ich absolut safe, dass wir das umsetzen können.
+76
+00:03:22,530 --> 00:03:25,573
+Also wenn das so ist,
+Frau Dr. Westlake, dann bin
 
-44
+77
+00:03:25,597 --> 00:03:28,639
+ich absolut safe, dass
+wir das umsetzen können.
+
+78
 00:03:29,297 --> 00:03:32,014
-Super, das würde ich dann genauso ins Protokoll übernehmen.
+Super, das würde ich dann
+genauso ins Protokoll übernehmen.
 
-45
+79
 00:03:35,744 --> 00:03:38,376
-Ich unterstreiche natürlich die wichtigen Punkte, wie immer sichtbar.
+Ich unterstreiche natürlich die
+wichtigen Punkte, wie immer sichtbar.
 
-46
+80
 00:03:39,692 --> 00:03:42,612
-Wettmarkieren ist eigentlich besser, weil es visueller einfach mehr und mehr...
+Wettmarkieren ist eigentlich besser,
+weil es visueller einfach mehr und mehr...
 
-47
-00:03:43,287 --> 00:03:48,484
-Ich wünsche Ihnen diese großartige Zusammenarbeit. Wenn Sie noch Fragen haben, melden Sie sich bitte bei Monika und dann erwarte ich freudig Ihre Mail.
+81
+00:03:43,287 --> 00:03:45,925
+Ich wünsche Ihnen diese großartige
+Zusammenarbeit. Wenn Sie noch Fragen haben,
 
-48
+82
+00:03:45,949 --> 00:03:48,484
+melden Sie sich bitte bei Monika
+und dann erwarte ich freudig Ihre Mail.
+
+83
 00:03:48,687 --> 00:03:51,252
-Ja, dann machen Sie es gut, Frau Dr. Beslake. Wiedersehen.
+Ja, dann machen Sie es gut,
+Frau Dr. Westlake. Wiedersehen.
 
-49
+84
 00:03:51,775 --> 00:03:52,568
 Wiedersehen von mir da.
 
-50
+85
 00:03:53,040 --> 00:03:53,969
 Tschüss, bleibt gesund.
 
-51
+86
 00:03:54,171 --> 00:03:54,779
 Wiedersehen, Frau Müller.
 
-52
+87
 00:03:59,976 --> 00:04:00,617
-Ja, lieb.
+Ja, lief.
 
