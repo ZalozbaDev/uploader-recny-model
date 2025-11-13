@@ -27,7 +27,7 @@
 [SPEAKER_0401]: katka_2025_07+multi_2025_02_11,Female
 
 8
-00:00:00,000 --> 00:00:10,143
+00:00:00,200 --> 00:00:10,143
 [SPEAKER_0101]: Knjeni Młynkowa, wutrobnje witajće do našeho zetkanja. Kaž widźiće, smy wokna wurjedźili, smy čerstwje wšitko desinficěrowali. Haj, wšitke wiry su wotstronjene, mojej damje, stej tu wěstaj.
 
 9
