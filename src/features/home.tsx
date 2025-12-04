@@ -99,7 +99,7 @@ const Home: FC<{}> = () => {
       >
         <HeaderSection
           title='generator za protokole & podtitule @youtube'
-          subtitle='werzija GPP-2.1 - DZFSBB'
+          subtitle='wersija GPP-2.1 - DZFSBB'
         />
 
         <ProcessFlow
