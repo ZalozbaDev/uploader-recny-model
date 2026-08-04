@@ -1,15 +1,16 @@
 import axios from 'axios'
+import { BACKEND_URL_RECOG,BACKEND_URL_DICT,BACKEND_URL_DUBBING } from "../config";
 
 // axiosInstance.defaults.headers['Content-Type'] = 'application/json'
 
 export const axiosInstanceTranscript = axios.create({
-  baseURL: process.env.REACT_APP_API_URL_TRANSCRIPT
+  baseURL: BACKEND_URL_RECOG
 })
 
 export const axiosInstanceSlownik = axios.create({
-  baseURL: process.env.REACT_APP_API_URL_SLOWNIK
+  baseURL: BACKEND_URL_DICT
 })
 
 export const axiosInstanceDubbing = axios.create({
-  baseURL: process.env.REACT_APP_API_URL_DUBBING
+  baseURL: BACKEND_URL_DUBBING
 })

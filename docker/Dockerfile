@@ -1,18 +1,28 @@
-FROM node:20.11.1-bookworm
-MAINTAINER Daniel Sobe <daniel.sobe@sorben.com>
+########### build container
+FROM node:24 AS frontendbuild
+WORKDIR /app
 
-# docker build -t offline_transcription .
-# docker build -t offline_transcription . --no-cache
+COPY package*.json ./
+RUN npm ci
 
-RUN mkdir -p /uploader-recny-model/public
-RUN mkdir -p /uploader-recny-model/src
+COPY tsconfig.json .
+ADD src/ src/
+ADD public/ public/
+RUN npm run build
+# RUN ls -l
 
-COPY public                                       /uploader-recny-model/public
-COPY src                                          /uploader-recny-model/src
-COPY package.json package-lock.json tsconfig.json /uploader-recny-model
+########### deployment container
+FROM nginx:stable-alpine
 
-RUN cd uploader-recny-model && npm install
+# make sure the router works (pages fall back to the index.html)
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY docker/startme.sh /
+COPY --from=frontendbuild /app/build /usr/share/nginx/html
 
-CMD ["/bin/bash", "-c", "/startme.sh"] 
+COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh
+
+EXPOSE 80
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
