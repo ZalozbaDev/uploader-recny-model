@@ -38,20 +38,14 @@ const Imprint: FC<{}> = () => {
           <br />
           telefon: 03591 550 300
           <br />
-          faks: 03591 42811
-          <br />
           mejlce: &nbsp;&nbsp;
-          <a href="javascript:linkTo_UnCryptMailto('ocknvq,uvkhvwpi/dcwvbgpBuqtdgp0eqo');">
-            stiftung-bautzen@sorben.com
-          </a>
+          <a href='mailto:sekretariat@zalozba.de'>sekretariat@zalozba.de</a>
           ,&nbsp;
-          <a href="javascript:linkTo_UnCryptMailto('ocknvq,uvkhvwpi/eqvvdwuBuqtdgp0eqo');">
-            stiftung-cottbus@sorben.com
-          </a>
+          <a href='mailto:chosebuz@zalozba.de'>chosebuz@zalozba.de</a>
           <br />
           internet:&nbsp;
-          <a href='http://www.stiftung.sorben.com/' target='_blank" rel="nofollow'>
-            stiftung.sorben.com
+          <a href='https://www.zalozba.de/' target='_blank" rel="nofollow'>
+            zalozba.de
           </a>
         </p>
         <p className='bodytext'>
@@ -70,7 +64,7 @@ const Imprint: FC<{}> = () => {
           załožbu před sudnistwom a zwonkasudnisce.
         </p>
         <p className='bodytext'>
-          předsydka Załožboweje rady: Susann Šenkec
+          předsyda Załožboweje rady: Marko Kowar
           <br />
           direktor: Jan Budar&nbsp;
           <br />
@@ -83,9 +77,7 @@ const Imprint: FC<{}> = () => {
         <p className='bodytext'>
           Załožba za serbski lud
           <br />
-          <a href="javascript:linkTo_UnCryptMailto('ocknvq,uvkhvwpi/dcwvbgpBuqtdgp0eqo');">
-            stiftung-bautzen@sorben.com
-          </a>
+          <a href='mailto:sekretariat@zalozba.de'>sekretariat@zalozba.de</a>
         </p>
         <p className='bodytext'>
           <b>Pokazka na rukowanje</b>
@@ -100,16 +92,7 @@ const Imprint: FC<{}> = () => {
         <p className='bodytext'>
           Z přičin čitajomnosće wzdamy so na tutej webstronje na runočasne wužiwanje muskich a
           žónskich rěčnych formow. Wšitke pomjenowanja wosobow abo powołanjow płaća takrjec za
-          wobojej splahaj.&nbsp;
-          <br />
-          <b>
-            <br />
-            Wjacerěčnosć wobsahow
-            <br />
-          </b>
-          <br />
-          Tuta webstrona hodźi so w němskej, hornjo- a delnjoserbskej rěči wotwołać. Prosymy wo
-          zrozumjenje, zo njeje móžno, cyłkowny přełožk podatych wobsahow stajnje aktualnje zaručić.
+          wobojej splahaj.
         </p>
         <p className='bodytext'>
           <b>Awtorske prawo</b>
@@ -128,9 +111,7 @@ const Imprint: FC<{}> = () => {
         <p className='bodytext'>
           Kritiki abo pokiwy prosymy nam z mejlku na slědowacu adresu sposrědkować:
           <br />
-          <a href="javascript:linkTo_UnCryptMailto('ocknvq,uvkhvwpi/dcwvbgpBuqtdgp0eqo');">
-            stiftung-bautzen@sorben.com
-          </a>
+          <a href='mailto:sekretariat@zalozba.de'>sekretariat@zalozba.de</a>
         </p>
         <p className='bodytext'>
           Wužiwanje našeje webstrony je zasadnje bjez podaća wosobinskich datow móžne. Dalokož so na

@@ -23,8 +23,8 @@ const DataProtection: FC<{}> = () => {
         <div id='c1089' className='csc-default'>
           <p className='bodytext'>
             Die Internetpräsentation{' '}
-            <a href='http://www.stiftung.sorben.com/' target='_blank" rel="nofollow'>
-              stiftung.sorben.com
+            <a href='https://zalozba.de' target='_blank" rel="nofollow'>
+              zalozba.de
             </a>{' '}
             wird von der
           </p>
@@ -81,36 +81,16 @@ const DataProtection: FC<{}> = () => {
             aus, dass Sie der Speicherung dieser Daten ausdrücklich zustimmen.
           </p>
           <p className='bodytext'>
-            Analysedienste / Verwendung von Cookies:
-            <br />
-            Unsere Website verwendet Piwik, dabei handelt es sich um einen sogenannten
-            Webanalysedienst. Piwik verwendet sog. "Cookies", das sind Textdateien, die auf Ihrem
-            Computer gespeichert werden und die unsererseits eine Analyse der Benutzung der Webseite
-            ermöglichen. Zu diesem Zweck werden die durch den Cookie erzeugten Nutzungsinformationen
-            (einschließlich Ihrer gekürzten IP-Adresse) an unseren Server übertragen und zu
-            Nutzungsanalysezwecken gespeichert, was der Webseitenoptimierung unsererseits dient.
-            Ihre IP-Adresse wird bei diesem Vorgang umge­hend anony­mi­siert, so dass Sie als Nutzer
-            für uns anonym bleiben. Die durch den Cookie erzeugten Informationen über Ihre Benutzung
-            dieser Webseite werden nicht an Dritte weitergegeben. Sie können die Verwendung der
-            Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern, es kann
-            jedoch sein, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser
-            Website voll umfänglich nutzen können.
+            <b>Löschung von Daten/Auskunft</b>
           </p>
           <p className='bodytext'>
-            Wenn Sie mit der Spei­che­rung und Aus­wer­tung die­ser Daten aus Ihrem Besuch nicht
-            ein­ver­stan­den sind, dann kön­nen Sie der Spei­che­rung und Nut­zung nachfolgend per
-            Maus­klick jederzeit wider­spre­chen. In diesem Fall wird in Ihrem Browser ein sog.
-            Opt-Out-Cookie abgelegt, was zur Folge hat, dass Piwik kei­ner­lei Sit­zungs­da­ten
-            erhebt. Achtung: Wenn Sie Ihre Cookies löschen, so hat dies zur Folge, dass auch das
-            Opt-Out-Cookie gelöscht wird und ggf. von Ihnen erneut aktiviert werden muss. (Quelle:{' '}
-            <a
-              href='https://www.datenschutzbeauftragter-info.de/fachbeitraege/'
-              title='Datenschutzbeauftragter INFO'
-              target='_blank'
-            >
-              www.datenschutzbeauftragter-info.de
-            </a>
-            <b>)</b>
+            Es ist jederzeit möglich Ihr Einverständnis zur Speicherung personenbezogener Daten
+            schriftlich oder per E-Mail zu widerrufen und die Löschung Ihrer Daten zu fordern.
+          </p>
+          <p className='bodytext'>
+            <b>Kritiken und Hinweise</b> erbitten wir per E-Mail an:
+            <br />
+            <a href='mailto:sekretariat@zalozba.de'>sekretariat@zalozba.de</a>
           </p>
         </div>
       </Paper>
