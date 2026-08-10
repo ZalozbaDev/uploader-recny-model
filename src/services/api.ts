@@ -1,5 +1,6 @@
 import { axiosInstanceTranscript, axiosInstanceSlownik, axiosInstanceDubbing } from '../lib/axios'
 import { sanitize } from '../helper/sanitizer'
+import { BACKEND_URL_RECOG,BACKEND_URL_DICT,BACKEND_URL_DUBBING } from "../config";
 
 // Request types
 export interface TranscriptUploadRequest {
@@ -174,10 +175,10 @@ export const getDownloadUrl = (
 ): string => {
   const { token, filename } = params
   const baseUrl = isTranscript
-    ? process.env.REACT_APP_API_URL_TRANSCRIPT
+    ? BACKEND_URL_RECOG
     : isDubbing
-      ? process.env.REACT_APP_API_URL_DUBBING
-      : process.env.REACT_APP_API_URL_SLOWNIK
+      ? BACKEND_URL_DUBBING
+      : BACKEND_URL_DICT
 
   return `${baseUrl}/download?token=${token}&filename=${sanitize(filename)}`
 }
