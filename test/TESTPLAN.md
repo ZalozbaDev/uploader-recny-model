@@ -6,12 +6,16 @@
 2. vad=off (text)
 3. translate=on (text,srt,srt)
 
+## HFDSB
+
+1. defaults (text,srt)
+
 ## BOZA_MSA
 
 1. defaults (text, srt)
-2. vad=off (text,srt)
-3. translate=on (text,srt,srt)
-3. vad=off,translate=on (text,srt,srt)
+2. optional: vad=off (text,srt)
+3. optional: translate=on (text,srt,srt)
+3. optional: vad=off,translate=on (text,srt,srt)
 
 ## GERMAN
 
