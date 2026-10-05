@@ -35,7 +35,7 @@
 # Dubbing
 
 1. default (srt)
-2. with srt (srt)
+2. optional: with srt (srt)
 
 # Fonetika
 
