@@ -13,17 +13,18 @@
 ## BOZA_MSA
 
 1. defaults (text, srt)
-2. optional: vad=off (text,srt)
+2. vad=off (text,srt)
 3. optional: translate=on (text,srt,srt)
 3. optional: vad=off,translate=on (text,srt,srt)
 
-## GERMAN
+## GERMAN (whisper-ctranslate)
 
-1. defaults (text)
+1. defaults (text,srt)
+1. defaults,speakers>0 (text)
 
 ## DEVEL
 
-1. defaults (text)
+1. optional: defaults (text)
 
 # Forcealign
 
@@ -34,7 +35,7 @@
 
 ## DEVEL
 
-1. defaults (srt,srt)
+1. optional: defaults (srt,srt)
 
 # Dubbing
 
