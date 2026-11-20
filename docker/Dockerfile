@@ -14,7 +14,7 @@ RUN mkdir -p build/config/ && touch build/config/runtime-config.js
 
 ########### deployment container
 # FROM nginx:stable-alpine
-FROM nginxinc/nginx-unprivileged:stable-alpine
+FROM nginx/nginx-unprivileged:1.31.9
 
 # don't add user to the container, the image takes care already
 # RUN useradd -u 1000 -m reactapp
